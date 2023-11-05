@@ -1,0 +1,133 @@
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import {
+  CCard,
+  CCardBody,
+  CButton,
+  CCardGroup,
+  CCol,
+  CContainer,
+  CForm,
+  CFormInput,
+  CInputGroup,
+  CInputGroupText,
+  CRow,
+} from '@coreui/react'
+import CIcon from '@coreui/icons-react'
+import { cilUser } from '@coreui/icons'
+import { searchbyname as searchdefunto } from '../../../services/defunto'
+import { getList as getListCimitero } from '../../../services/cimitero'
+import { ToastContainer } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css'
+
+const Follow = () => {
+  const navigate = useNavigate()
+
+  let user, Regione, citta
+
+  var objectList = [{ id: '', nome: '', cognome: '', cimitero: '' }]
+
+  const search = async () => {
+    var defunti = await searchdefunto(user, Regione, citta)
+    var cimiteri = await getListCimitero()
+
+    objectList = []
+    for (var i = 0; i < defunti.length; i++) {
+      var id = defunti[i].id
+      var nome = defunti[i].nome
+      var cognome = defunti[i].cognome
+      var citta = ''
+      for (var i2 = 0; i2 < cimiteri.length; i2++) {
+        if (cimiteri[i2].id == defunti[i].idCimitero) {
+          citta = cimiteri[i2].citta
+        }
+      }
+      objectList.push({
+        id: id,
+        nome: nome,
+        cognome: cognome,
+        cimitero: citta,
+      })
+    }
+    if (objectList.length > 0) {
+      navigate('/follow/user', { state: { objectList: objectList } })
+    }
+  }
+
+  const changeTextUsername = (val) => {
+    user = val.target.value
+  }
+
+  const changeTextRegione = (val) => {
+    Regione = val.target.value
+  }
+  const changeTextCitta = (val) => {
+    citta = val.target.value
+  }
+
+  return (
+    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+      <CContainer>
+        <CRow className="justify-content-center">
+          <CCol md={8}>
+            <CCardGroup>
+              <CCard className="p-4">
+                <CCardBody>
+                  <CForm>
+                    <h1>Segui un defunto</h1>
+                    <p className="text-medium-emphasis">Seleziona il comune di Residenza</p>
+                    <p></p>
+                    <CInputGroup className="mb-3">
+                      <CInputGroupText>
+                        <CIcon icon={cilUser} />
+                      </CInputGroupText>
+                      <CFormInput
+                        placeholder="Nome defunto"
+                        autoComplete="Nome defunto"
+                        onChange={changeTextUsername}
+                      />
+                    </CInputGroup>
+
+                    <CInputGroup className="mb-3">
+                      <CInputGroupText>
+                        <CIcon icon={cilUser} />
+                      </CInputGroupText>
+                      <CFormInput
+                        placeholder="Regione"
+                        autoComplete="Regione"
+                        onChange={changeTextRegione}
+                      />
+                    </CInputGroup>
+
+                    <CInputGroup className="mb-3">
+                      <CInputGroupText>
+                        <CIcon icon={cilUser} />
+                      </CInputGroupText>
+                      <CFormInput
+                        placeholder="Citta"
+                        autoComplete="Citta"
+                        onChange={changeTextCitta}
+                      />
+                    </CInputGroup>
+
+                    <CRow>
+                      <CCol xs={6}>
+                        <CButton color="primary" className="px-4" onClick={() => search()}>
+                          Ricerca
+                        </CButton>
+                      </CCol>
+                    </CRow>
+                  </CForm>
+                </CCardBody>
+              </CCard>
+            </CCardGroup>
+            <ToastContainer />
+          </CCol>
+        </CRow>
+      </CContainer>
+    </div>
+  )
+}
+
+export default Follow

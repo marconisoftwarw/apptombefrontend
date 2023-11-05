@@ -1,0 +1,65 @@
+import * as axios from 'axios'
+import { url } from './settings'
+import { getList as getListCimiteri } from './cimitero'
+
+export async function deleteCimitero(id) {
+  var result = false
+  await axios
+    .delete(url + '/totemhardware/delete/' + id, { id: id })
+    .then(function (response) {
+      window.location.reload()
+      return true
+    })
+    .catch(function (error) {
+      console.log('Errore: ' + error.toString())
+    })
+  return result
+}
+
+export async function getNome(id) {
+  var nome = ''
+  var listacimiteri = await getListCimiteri()
+  for (var i = 0; i < listacimiteri.length; i++) {
+    if (listacimiteri[i].id == id) {
+      nome = listacimiteri[i].citta
+    }
+  }
+  return nome
+}
+
+export async function getList() {
+  var lista = []
+
+  await axios
+    .get(url + '/totemhardware', {})
+    .then(async function (response) {
+      var data = response.data
+      for (let index in data) {
+        var datatemp = {
+          id: data[index].id,
+          idCimitero: data[index].idCimitero,
+          Nome: await getNome(data[index].idCimitero),
+        }
+        lista.push(datatemp)
+      }
+    })
+    .catch(function (error) {
+      console.log('Errore: caricamento cimiteri registrati: ' + error)
+    })
+  return lista
+}
+
+export async function addtotem(idCimitero) {
+  var ret = true
+
+  await axios
+    .post(url + '/totemhardware', { idCimitero: idCimitero })
+    .then(function (response) {
+      return response.data
+    })
+    .catch(function (error) {
+      ret = false
+      console.log('Errore: eliminazione utente: ' + error)
+    })
+  return ret
+}

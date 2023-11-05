@@ -1,0 +1,208 @@
+[
+  {
+    "label": "Abruzzo",
+    "provinces": [
+      { "label": "Chieti", "abbreviation": "CH" },
+      { "label": "L'Aquila", "abbreviation": "AQ" },
+      { "label": "Pescara", "abbreviation": "PE" },
+      { "label": "Teramo", "abbreviation": "TE" }
+    ]
+  },
+  {
+    "label": "Basilicata",
+    "provinces": [
+      { "label": "Matera", "abbreviation": "MT" },
+      { "label": "Potenza", "abbreviation": "PZ" }
+    ]
+  },
+  {
+    "label": "Calabria",
+    "provinces": [
+      { "label": "Catanzaro", "abbreviation": "CZ" },
+      { "label": "Cosenza", "abbreviation": "CS" },
+      { "label": "Crotone", "abbreviation": "KR" },
+      { "label": "Reggio Calabria", "abbreviation": "RC" },
+      { "label": "Vibo Valentia", "abbreviation": "VV" }
+    ]
+  },
+  {
+    "label": "Campania",
+    "provinces": [
+      { "label": "Avellino", "abbreviation": "AV" },
+      { "label": "Benevento", "abbreviation": "BN" },
+      { "label": "Caserta", "abbreviation": "CE" },
+      { "label": "Napoli", "abbreviation": "NA" },
+      { "label": "Salerno", "abbreviation": "SA" }
+    ]
+  },
+  {
+    "label": "Emilia-Romagna",
+    "provinces": [
+      { "label": "Bologna", "abbreviation": "BO" },
+      { "label": "Ferrara", "abbreviation": "FE" },
+      { "label": "Forlì-Cesena", "abbreviation": "FC" },
+      { "label": "Modena", "abbreviation": "MO" },
+      { "label": "Parma", "abbreviation": "PR" },
+      { "label": "Piacenza", "abbreviation": "PC" },
+      { "label": "Ravenna", "abbreviation": "RA" },
+      { "label": "Reggio Emilia", "abbreviation": "RE" },
+      { "label": "Rimini", "abbreviation": "RN" },
+      { "label": "Cento", "abbreviation": "CE" }
+    ]
+  },
+  {
+    "label": "Friuli-Venezia Giulia",
+    "provinces": [
+      { "label": "Gorizia", "abbreviation": "GO" },
+      { "label": "Pordenone", "abbreviation": "PN" },
+      { "label": "Trieste", "abbreviation": "TS" },
+      { "label": "Udine", "abbreviation": "UD" }
+    ]
+  },
+  {
+    "label": "Lazio",
+    "provinces": [
+      { "label": "Frosinone", "abbreviation": "FR" },
+      { "label": "Latina", "abbreviation": "LT" },
+      { "label": "Rieti", "abbreviation": "RI" },
+      { "label": "Roma", "abbreviation": "RM" },
+      { "label": "Viterbo", "abbreviation": "VT" }
+    ]
+  },
+  {
+    "label": "Liguria",
+    "provinces": [
+      { "label": "Genova", "abbreviation": "GE" },
+      { "label": "Imperia", "abbreviation": "IM" },
+      { "label": "La Spezia", "abbreviation": "SP" },
+      { "label": "Savona", "abbreviation": "SV" }
+    ]
+  },
+  {
+    "label": "Lombardia",
+    "provinces": [
+      { "label": "Bergamo", "abbreviation": "BG" },
+      { "label": "Brescia", "abbreviation": "BS" },
+      { "label": "Como", "abbreviation": "CO" },
+      { "label": "Cremona", "abbreviation": "CR" },
+      { "label": "Lecco", "abbreviation": "LC" },
+      { "label": "Lodi", "abbreviation": "LO" },
+      { "label": "Mantova", "abbreviation": "MN" },
+      { "label": "Milano", "abbreviation": "MI" },
+      { "label": "Monza e Brianza", "abbreviation": "MB" },
+      { "label": "Pavia", "abbreviation": "PV" },
+      { "label": "Sondrio", "abbreviation": "SO" },
+      { "label": "Varese", "abbreviation": "VA" }
+    ]
+  },
+  {
+    "label": "Marche",
+    "provinces": [
+      { "label": "Ancona", "abbreviation": "AN" },
+      { "label": "Ascoli Piceno", "abbreviation": "AP" },
+      { "label": "Fermo", "abbreviation": "FM" },
+      { "label": "Macerata", "abbreviation": "MC" },
+      { "label": "Pesaro e Urbino", "abbreviation": "PU" }
+    ]
+  },
+  {
+    "label": "Molise",
+    "provinces": [
+      { "label": "Campobasso", "abbreviation": "CB" },
+      { "label": "Isernia", "abbreviation": "IS" }
+    ]
+  },
+  {
+    "label": "Piemonte",
+    "provinces": [
+      { "label": "Alessandria", "abbreviation": "AL" },
+      { "label": "Asti", "abbreviation": "AT" },
+      { "label": "Biella", "abbreviation": "BI" },
+      { "label": "Cuneo", "abbreviation": "CN" },
+      { "label": "Novara", "abbreviation": "NO" },
+      { "label": "Torino", "abbreviation": "TO" },
+      { "label": "Verbano Cusio Ossola", "abbreviation": "VB" },
+      { "label": "Vercelli", "abbreviation": "VC" }
+    ]
+  },
+  {
+    "label": "Puglia",
+    "provinces": [
+      { "label": "Bari", "abbreviation": "BA" },
+      { "label": "Barletta-Andria-Trani", "abbreviation": "BT" },
+      { "label": "Brindisi", "abbreviation": "BR" },
+      { "label": "Lecce", "abbreviation": "LE" },
+      { "label": "Foggia", "abbreviation": "FG" },
+      { "label": "Taranto", "abbreviation": "TA" }
+    ]
+  },
+  {
+    "label": "Sardegna",
+    "provinces": [
+      { "label": "Cagliari", "abbreviation": "CA" },
+      { "label": "Carbonia-Iglesias", "abbreviation": "CI" },
+      { "label": "Medio Campidano", "abbreviation": "VS" },
+      { "label": "Nuoro", "abbreviation": "NU" },
+      { "label": "Ogliastra", "abbreviation": "OG" },
+      { "label": "Olbia-Tempio", "abbreviation": "OT" },
+      { "label": "Oristano", "abbreviation": "OR" },
+      { "label": "Sassari", "abbreviation": "SS" }
+    ]
+  },
+  {
+    "label": "Sicilia",
+    "provinces": [
+      { "label": "Agrigento", "abbreviation": "AG" },
+      { "label": "Caltanissetta", "abbreviation": "CL" },
+      { "label": "Catania", "abbreviation": "CT" },
+      { "label": "Enna", "abbreviation": "EN" },
+      { "label": "Messina", "abbreviation": "ME" },
+      { "label": "Palermo", "abbreviation": "PA" },
+      { "label": "Ragusa", "abbreviation": "RG" },
+      { "label": "Siracusa", "abbreviation": "SR" },
+      { "label": "Trapani", "abbreviation": "TP" }
+    ]
+  },
+  {
+    "label": "Toscana",
+    "provinces": [
+      { "label": "Arezzo", "abbreviation": "AR" },
+      { "label": "Firenze", "abbreviation": "FI" },
+      { "label": "Grosseto", "abbreviation": "GR" },
+      { "label": "Livorno", "abbreviation": "LI" },
+      { "label": "Lucca", "abbreviation": "LU" },
+      { "label": "Massa e Carrara", "abbreviation": "MS" },
+      { "label": "Pisa", "abbreviation": "PI" },
+      { "label": "Pistoia", "abbreviation": "PT" },
+      { "label": "Prato", "abbreviation": "PO" },
+      { "label": "Siena", "abbreviation": "SI" }
+    ]
+  },
+  {
+    "label": "Trentino-Alto Adige",
+    "provinces": [
+      { "label": "Bolzano", "abbreviation": "BZ" },
+      { "label": "Trento", "abbreviation": "TN" }
+    ]
+  },
+  {
+    "label": "Umbria",
+    "provinces": [
+      { "label": "Perugia", "abbreviation": "PG" },
+      { "label": "Terni", "abbreviation": "TR" }
+    ]
+  },
+  { "label": "Valle d'Aosta", "provinces": [{ "label": "Aosta", "abbreviation": "AO" }] },
+  {
+    "label": "Veneto",
+    "provinces": [
+      { "label": "Belluno", "abbreviation": "BL" },
+      { "label": "Padova", "abbreviation": "PD" },
+      { "label": "Rovigo", "abbreviation": "RO" },
+      { "label": "Treviso", "abbreviation": "TV" },
+      { "label": "Venezia", "abbreviation": "VE" },
+      { "label": "Verona", "abbreviation": "VR" },
+      { "label": "Vicenza", "abbreviation": "VI" }
+    ]
+  }
+]
