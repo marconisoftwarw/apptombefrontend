@@ -18,7 +18,6 @@ import { register } from '../../../services/user'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-//Define of user select
 var userSelectValue = 'UTENTE'
 
 const Register = () => {
@@ -79,7 +78,6 @@ const Register = () => {
                 <CForm>
                   <h1>Registrati al portale</h1>
                   <p className="text-medium-emphasis">Crea il tuo account</p>
-                  {/*<DropdownCustomUser />*/}
                   <p></p>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>

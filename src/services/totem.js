@@ -1,13 +1,6 @@
 import * as axios from 'axios'
 import { url } from './settings'
 
-/**
- * Inserimento totem
- * @param {*} nome
- * @param {*} idCimitero
- * @param {*} idTotemHardware
- * @returns
- */
 export async function addtotem(nome, idCimitero, idTotemHardware) {
   var result = false
   await axios
