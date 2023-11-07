@@ -71,6 +71,7 @@ const Enter = () => {
       style={{
         backgroundImage: `url(${sfondo})`,
       }}
+      onClick={() => navigate('/login')}
     >
       <div style={{ height: height, width: width }}></div>
     </div>
