@@ -12,7 +12,7 @@ const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 const Login = React.lazy(() => import('./views/pages/login/Login'))
 const Follow = React.lazy(() => import('./views/pages/Follow/Follow'))
 const FollowTable = React.lazy(() => import('./views/pages/Follow/FollowTable'))
-
+const Enter = React.lazy(() => import('./views/pages/enter/Enter'))
 const Register = React.lazy(() => import('./views/pages/register/Register'))
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
@@ -23,6 +23,7 @@ class App extends Component {
       <HashRouter>
         <Suspense fallback={loading}>
           <Routes>
+            <Route exact path="/enter" name="Home Page" element={<Enter />} />
             <Route exact path="/login" name="Login Page" element={<Login />} />
             <Route exact path="/follow" name="Login Page" element={<Follow />} />
             <Route exact path="/follow/user" name="Follow Detail" element={<FollowTable />} />
