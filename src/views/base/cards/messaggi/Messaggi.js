@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
+  CButton,
+  CCardHeader,
+  CCol,
+  CRow,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
-  CButton,
   CTableHeaderCell,
   CTableRow,
-  CCardHeader,
-  CCol,
-  CRow,
 } from '@coreui/react'
 import { useNavigate } from 'react-router-dom'
 import { getList } from '../../../../services/defunto'

@@ -1,15 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
-import {
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CRow,
-  CCol,
-  CInputGroup,
-  CFormInput,
-  CButton,
-} from '@coreui/react'
+import React, { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import 'react-toastify/dist/ReactToastify.css'
 import { addtotem } from '../../../services/hardwaretotem'

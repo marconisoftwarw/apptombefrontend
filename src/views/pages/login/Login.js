@@ -1,14 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import sfondo from 'src/assets/sfondo.png'
 import { CButton, CCol, CFormInput, CInputGroup, CInputGroupText, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { loginUser } from '../../../services/user'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
-import { useState, useEffect } from 'react'
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window

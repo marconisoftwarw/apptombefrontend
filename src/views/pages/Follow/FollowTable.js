@@ -1,23 +1,21 @@
 /* eslint-disable react/no-unknown-property */
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import {
+  CButton,
+  CContainer,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
   CTableRow,
-  CButton,
-  CContainer,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { ToastContainer, toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import { cilUser } from '@coreui/icons'
-import { useLocation } from 'react-router-dom'
-import 'react-toastify/dist/ReactToastify.css'
 import { follow } from 'src/services/defunto'
 
 const FollowTables = () => {

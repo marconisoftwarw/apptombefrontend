@@ -1,13 +1,6 @@
 /* eslint-disable react/jsx-key */
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
-  CTable,
-  CTableBody,
-  CTableDataCell,
-  CTableHead,
-  CTableHeaderCell,
-  CButton,
-  CTableRow,
   CCard,
   CCardBody,
   CCardHeader,
@@ -16,6 +9,12 @@ import {
   CCardTitle,
   CCol,
   CRow,
+  CTable,
+  CTableBody,
+  CTableDataCell,
+  CTableHead,
+  CTableHeaderCell,
+  CTableRow,
 } from '@coreui/react'
 import { useNavigate } from 'react-router-dom'
 import ReactImg from 'src/assets/images/react.jpeg'

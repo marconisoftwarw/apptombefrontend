@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { register } from '../../../services/user'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 var userSelectValue = 'UTENTE'

@@ -6,8 +6,8 @@ import {
   CCardBody,
   CCardHeader,
   CCol,
-  CRow,
   CLink,
+  CRow,
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
 

@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
+  CButton,
+  CCardHeader,
+  CCol,
+  CRow,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
   CTableRow,
-  CButton,
-  CCardHeader,
-  CCol,
-  CRow,
 } from '@coreui/react'
-import { getList, eliminaDefunto } from '../../../services/defunto'
+import { eliminaDefunto, getList } from '../../../services/defunto'
 import { getList as getListCimitero } from '../../../services/cimitero'
 
 const TablesCustom = () => {

@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   CAvatar,
+  CButton,
   CProgress,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
-  CButton,
   CTableRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cifIt, cilPeople } from '@coreui/icons'
 import avatar1 from 'src/assets/images/avatars/1.jpg'
-import { getuserList, changeStateUser, deleteUser, aggiornatipologia } from '../../services/user'
+import { aggiornatipologia, changeStateUser, deleteUser, getuserList } from '../../services/user'
 import Dropdown from 'react-bootstrap/Dropdown'
 import 'react-toastify/dist/ReactToastify.css'
+
 /* eslint-disable react/prop-types */
 function DropdownCustomUser(props) {
   const userSelect = async (value) => {

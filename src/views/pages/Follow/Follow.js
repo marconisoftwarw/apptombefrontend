@@ -1,18 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import {
-  CCard,
-  CCardBody,
-  CButton,
-  CCardGroup,
-  CCol,
-  CContainer,
-  CForm,
-  CFormInput,
-  CInputGroup,
-  CInputGroupText,
-  CRow,
-} from '@coreui/react'
+import { CButton, CCol, CForm, CFormInput, CInputGroup, CInputGroupText, CRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilUser } from '@coreui/icons'
 import { searchbyname as searchdefunto } from '../../../services/defunto'

@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
-  CTable,
   CButton,
+  CCardHeader,
+  CCol,
+  CFormInput,
+  CInputGroup,
+  CRow,
+  CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
-  CFormInput,
-  CInputGroup,
   CTableRow,
-  CCardHeader,
-  CCol,
-  CRow,
 } from '@coreui/react'
 import { useLocation } from 'react-router-dom'
-import { getList, add, addimage } from '../../../../services/messaggi'
+import { add, addimage, getList } from '../../../../services/messaggi'
 import FileBase64 from 'react-file-base64'
 import { url } from '../../../../services/settings'
 

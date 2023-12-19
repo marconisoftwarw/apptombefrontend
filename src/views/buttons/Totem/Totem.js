@@ -1,22 +1,21 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint react/prop-types: 0 */
-import React, { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import {
   CButton,
   CCard,
   CCardBody,
   CCardHeader,
   CCol,
-  CRow,
-  CInputGroup,
   CFormInput,
+  CInputGroup,
+  CRow,
 } from '@coreui/react'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { addtotem } from '../../../services/totem'
 import ui from '../../../assets/images/totem.jpeg'
-import 'react-toastify/dist/ReactToastify.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 
 const Totem = () => {

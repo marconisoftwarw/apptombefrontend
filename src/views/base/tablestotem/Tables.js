@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
+  CButton,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
-  CButton,
   CTableRow,
 } from '@coreui/react'
 import { cifIt } from '@coreui/icons'
 import avatar1 from 'src/assets/images/totem.jpeg'
-import { getList, deleteTotem } from '../../../services/totem'
+import { deleteTotem, getList } from '../../../services/totem'
 import { url } from '../../../services/settings'
 
 const TablesTotem = (props) => {

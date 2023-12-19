@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
+  CButton,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
-  CButton,
   CTableRow,
 } from '@coreui/react'
-import { getList, deleteCimitero } from '../../../services/hardwaretotem'
+import { deleteCimitero, getList } from '../../../services/hardwaretotem'
 import { getList as getListCimitero } from '../../../services/cimitero'
 import hardware from '../../../assets/images/hardware.webp'
 

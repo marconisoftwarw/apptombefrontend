@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
+  CButton,
+  CCardHeader,
+  CCol,
+  CRow,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
-  CButton,
   CTableHeaderCell,
   CTableRow,
-  CCardHeader,
-  CCol,
-  CRow,
 } from '@coreui/react'
 import { getList } from '../../../../services/defunto'
 import { getList as getListContatti, update } from '../../../../services/contatti'

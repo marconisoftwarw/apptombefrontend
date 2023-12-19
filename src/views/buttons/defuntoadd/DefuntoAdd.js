@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import {
+  CButton,
   CCard,
   CCardBody,
   CCardHeader,
-  CRow,
   CCol,
-  CInputGroup,
   CFormInput,
-  CButton,
+  CInputGroup,
+  CRow,
 } from '@coreui/react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { add } from '../../../services/defunto'

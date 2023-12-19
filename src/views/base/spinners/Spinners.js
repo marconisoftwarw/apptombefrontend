@@ -1,5 +1,5 @@
 import React from 'react'
-import { CButton, CCard, CCardBody, CCardHeader, CCol, CSpinner, CRow } from '@coreui/react'
+import { CButton, CCard, CCardBody, CCardHeader, CCol, CRow, CSpinner } from '@coreui/react'
 import { DocsExample } from 'src/components'
 
 const Accordion = () => {

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import {
+  CButton,
   CCard,
   CCardBody,
   CCardHeader,
   CCollapse,
+  CDropdown,
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
@@ -11,13 +13,11 @@ import {
   CFormInput,
   CImage,
   CNavbar,
-  CNavbarNav,
   CNavbarBrand,
+  CNavbarNav,
   CNavbarText,
   CNavbarToggler,
   CNavLink,
-  CDropdown,
-  CButton,
 } from '@coreui/react'
 import { DocsLink } from 'src/components'
 

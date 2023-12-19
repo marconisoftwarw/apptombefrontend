@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useState, createRef } from 'react'
+import React, { createRef, useEffect, useState } from 'react'
 import classNames from 'classnames'
-import { CRow, CCol, CCard, CCardHeader, CCardBody } from '@coreui/react'
+import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
 import { rgbToHex } from '@coreui/utils'
 import { DocsLink } from 'src/components'
 

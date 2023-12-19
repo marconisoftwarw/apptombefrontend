@@ -1,5 +1,5 @@
 import React from 'react'
-import { CButton, CCard, CCardBody, CCardHeader, CPopover, CRow, CCol } from '@coreui/react'
+import { CButton, CCard, CCardBody, CCardHeader, CCol, CPopover, CRow } from '@coreui/react'
 import { DocsExample } from 'src/components'
 
 const Popovers = () => {

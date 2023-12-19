@@ -1,5 +1,5 @@
 import React from 'react'
-import { CButton, CCard, CCardBody, CCardHeader, CLink, CTooltip, CRow, CCol } from '@coreui/react'
+import { CButton, CCard, CCardBody, CCardHeader, CCol, CLink, CRow, CTooltip } from '@coreui/react'
 import { DocsExample } from 'src/components'
 
 const Tooltips = () => {

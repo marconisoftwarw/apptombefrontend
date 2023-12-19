@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   CAvatar,
+  CButton,
   CTable,
   CTableBody,
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
-  CButton,
   CTableRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
@@ -15,7 +15,7 @@ import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 import { cifIt, cilPeople } from '@coreui/icons'
 import avatar1 from 'src/assets/images/cimitero.png'
-import { getList, deleteCimitero } from '../../../services/cimitero'
+import { deleteCimitero, getList } from '../../../services/cimitero'
 import { getList as gethardwaretotem } from '../../../services/hardwaretotem'
 import { getList as getListaTotem } from '../../../services/totem'
 

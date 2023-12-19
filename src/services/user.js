@@ -1,5 +1,5 @@
 import * as axios from 'axios'
-import { url, getConfig } from './settings'
+import { getConfig, url } from './settings'
 
 export async function loginUser(username, password) {
   var result = false

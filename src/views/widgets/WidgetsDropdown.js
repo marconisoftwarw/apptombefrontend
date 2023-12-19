@@ -1,11 +1,11 @@
 import React from 'react'
 import {
-  CRow,
   CCol,
   CDropdown,
-  CDropdownMenu,
   CDropdownItem,
+  CDropdownMenu,
   CDropdownToggle,
+  CRow,
   CWidgetStatsA,
 } from '@coreui/react'
 import { getStyle } from '@coreui/utils'
