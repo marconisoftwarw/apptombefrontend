@@ -73,7 +73,7 @@ const Login = () => {
         height: '100%',
       }}
     >
-      <div style={{ height: height, width: width }}>
+      <div style={{ height: height, width: 400, marginLeft: 400 }}>
         <h1>Login</h1>
         <p className="text-medium-emphasis">Sign In to your account</p>
 
