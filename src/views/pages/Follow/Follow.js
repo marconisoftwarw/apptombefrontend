@@ -20,6 +20,7 @@ import { getList as getListCimitero } from '../../../services/cimitero'
 import { ToastContainer } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css'
+import sfondo from 'src/assets/sfondo.png'
 
 const Follow = () => {
   const navigate = useNavigate()
@@ -67,65 +68,51 @@ const Follow = () => {
   }
 
   return (
-    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
-      <CContainer>
-        <CRow className="justify-content-center">
-          <CCol md={8}>
-            <CCardGroup>
-              <CCard className="p-4">
-                <CCardBody>
-                  <CForm>
-                    <h1>Segui un defunto</h1>
-                    <p className="text-medium-emphasis">Seleziona il comune di Residenza</p>
-                    <p></p>
-                    <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon icon={cilUser} />
-                      </CInputGroupText>
-                      <CFormInput
-                        placeholder="Nome defunto"
-                        autoComplete="Nome defunto"
-                        onChange={changeTextUsername}
-                      />
-                    </CInputGroup>
+    <div
+      style={{
+        backgroundImage: `url(${sfondo})`,
+        backgroundSize: 'cover',
+        height: '100%',
+      }}
+    >
+      <CForm style={{ width: 400, marginLeft: 400, height: 1000 }}>
+        <h1>Segui un defunto</h1>
+        <p className="text-medium-emphasis">Seleziona il comune di Residenza</p>
+        <p></p>
+        <CInputGroup className="mb-3">
+          <CInputGroupText>
+            <CIcon icon={cilUser} />
+          </CInputGroupText>
+          <CFormInput
+            placeholder="Nome defunto"
+            autoComplete="Nome defunto"
+            onChange={changeTextUsername}
+          />
+        </CInputGroup>
 
-                    <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon icon={cilUser} />
-                      </CInputGroupText>
-                      <CFormInput
-                        placeholder="Regione"
-                        autoComplete="Regione"
-                        onChange={changeTextRegione}
-                      />
-                    </CInputGroup>
+        <CInputGroup className="mb-3">
+          <CInputGroupText>
+            <CIcon icon={cilUser} />
+          </CInputGroupText>
+          <CFormInput placeholder="Regione" autoComplete="Regione" onChange={changeTextRegione} />
+        </CInputGroup>
 
-                    <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon icon={cilUser} />
-                      </CInputGroupText>
-                      <CFormInput
-                        placeholder="Citta"
-                        autoComplete="Citta"
-                        onChange={changeTextCitta}
-                      />
-                    </CInputGroup>
+        <CInputGroup className="mb-3">
+          <CInputGroupText>
+            <CIcon icon={cilUser} />
+          </CInputGroupText>
+          <CFormInput placeholder="Citta" autoComplete="Citta" onChange={changeTextCitta} />
+        </CInputGroup>
 
-                    <CRow>
-                      <CCol xs={6}>
-                        <CButton color="primary" className="px-4" onClick={() => search()}>
-                          Ricerca
-                        </CButton>
-                      </CCol>
-                    </CRow>
-                  </CForm>
-                </CCardBody>
-              </CCard>
-            </CCardGroup>
-            <ToastContainer />
+        <CRow>
+          <CCol xs={6}>
+            <CButton color="primary" className="px-4" onClick={() => search()}>
+              Ricerca
+            </CButton>
           </CCol>
         </CRow>
-      </CContainer>
+      </CForm>
+      <ToastContainer />
     </div>
   )
 }
