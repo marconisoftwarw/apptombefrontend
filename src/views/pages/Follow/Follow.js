@@ -39,9 +39,8 @@ const Follow = () => {
         cimitero: citta,
       })
     }
-    if (objectList.length > 0) {
-      navigate('/follow/user', { state: { objectList: objectList } })
-    }
+
+    navigate('/follow/user', { state: { objectList: objectList } })
   }
 
   const changeTextUsername = (val) => {
