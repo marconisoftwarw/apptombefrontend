@@ -30,37 +30,8 @@ function useWindowDimensions() {
 
 const Enter = () => {
   const navigate = useNavigate()
-  let user, password
   const { height, width } = useWindowDimensions()
-  const notify = (message) => toast(message)
 
-  const loginfunction = async () => {
-    var islogin = await loginUser(user, password)
-    if (islogin == true) {
-      var type = await localStorage.getItem('type')
-      if (type == 'UTENTE') {
-        navigate('/messaggi')
-      } else if (type == 'ADMIN1') {
-        navigate('/defunto')
-      } else {
-        navigate('/dashboard')
-      }
-    } else {
-      notify('Errore: parametri non corretti')
-    }
-  }
-
-  const followFunction = async () => {
-    navigate('/follow')
-  }
-
-  const changeTextUsername = (val) => {
-    user = val.target.value
-  }
-
-  const changeTextPassword = (val) => {
-    password = val.target.value
-  }
   return (
     <div
       style={{

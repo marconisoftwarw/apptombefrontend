@@ -34,7 +34,7 @@ function useWindowDimensions() {
 const Login = () => {
   const navigate = useNavigate()
   let user, password
-  const { height, width } = useWindowDimensions()
+  const { height } = useWindowDimensions()
   const notify = (message) => toast(message)
 
   const loginfunction = async () => {
