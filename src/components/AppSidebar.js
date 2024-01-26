@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import imagelogo from '../assets/images/siger.jpeg'
+import imagelogo from '../assets/logo.png'
 import { AppSidebarNav } from './AppSidebarNav'
 
 import { sygnet } from 'src/assets/brand/sygnet'
@@ -40,7 +40,7 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <img src={imagelogo} width={200} />
+        <img src={imagelogo} width={255} />
         <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
       </CSidebarBrand>
       <CSidebarNav>
