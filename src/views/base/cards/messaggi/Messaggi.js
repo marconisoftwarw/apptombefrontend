@@ -72,7 +72,7 @@ const TablesCustom = () => {
         }
         setList(objectList)
       } catch (e) {
-        console.log(e)
+        //console.error(e)
       }
     }
     fetchData()

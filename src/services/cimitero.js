@@ -14,7 +14,7 @@ export async function addcimitero(nome, nazione, citta, regione) {
       return true
     })
     .catch(function (error) {
-      console.log('Errore: ' + error.toString())
+      //console.error('Errore: ' + error.toString())
     })
   return result
 }
@@ -39,7 +39,7 @@ export async function getList() {
       }
     })
     .catch(function (error) {
-      console.log('Errore: caricamento cimiteri registrati: ' + error)
+      //console.error('Errore: caricamento cimiteri registrati: ' + error)
     })
   return lista
 }
@@ -57,7 +57,7 @@ export async function deleteCimitero(id) {
     })
     .catch(function (error) {
       ret = false
-      console.log('Errore: eliminazione utente: ' + error)
+      //console.error('Errore: eliminazione utente: ' + error)
     })
   return ret
 }

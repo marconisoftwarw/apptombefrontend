@@ -56,9 +56,7 @@ const TablesTotem = (props) => {
           }
           list = listfilter
         }
-      } catch (e) {
-        console.log('Errorre err: ' + e)
-      }
+      } catch (e) {}
 
       setUserList(list)
       localStorage.setItem('IdCimitero', 0)

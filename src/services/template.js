@@ -36,13 +36,9 @@ export async function generateTemplate(
         .then(function (response) {
           return true
         })
-        .catch(function (error) {
-          console.log('Errore: ' + error.toString())
-        })
+        .catch(function (error) {})
       return true
     })
-    .catch(function (error) {
-      console.log('Errore: ' + error.toString())
-    })
+    .catch(function (error) {})
   return result
 }

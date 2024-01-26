@@ -36,7 +36,7 @@ const DefuntoAdd = () => {
       await add(nome, cognome, idComune, valueDate, dataNascita, sepoltura, soprannome)
       navigate('/defunto')
     } catch (e) {
-      console.log('Errore ' + e)
+      //console.error('Errore ' + e)
     }
   }
 

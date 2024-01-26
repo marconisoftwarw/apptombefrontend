@@ -12,9 +12,7 @@ export async function addtotem(nome, idCimitero, idTotemHardware) {
     .then(function () {
       return true
     })
-    .catch(function (error) {
-      console.log('Errore: ' + error.toString())
-    })
+    .catch(function (error) {})
   return result
 }
 
@@ -46,9 +44,7 @@ export async function getList() {
         lista.push(datatemp)
       }
     })
-    .catch(function (error) {
-      console.log('Errore: caricamento cimiteri registrati: ' + error)
-    })
+    .catch(function (error) {})
   return lista
 }
 

@@ -28,7 +28,7 @@ export async function getList(email) {
       }
     })
     .catch(function (error) {
-      console.log('Errore: caricamento cimiteri registrati: ' + error)
+      //console.error('Errore: caricamento cimiteri registrati: ' + error)
     })
   return lista
 }
@@ -52,27 +52,26 @@ export async function add(messaggio, emailReceiver, isImage) {
       return true
     })
     .catch(function (error) {
-      console.log('Errore: ' + error.toString())
+      //console.error('Errore: ' + error.toString())
     })
   return result
 }
 
 export async function addimage(image, emailReceiver) {
   var result = false
-  console.log(image)
+  //console.error(image)
   await axios
     .post(url + '/messaggio/addimage', {
       image: image,
     })
     .then(function (response) {
-      console.log(response.data)
       if (response.data != false) {
         // eslint-disable-next-line prettier/prettier
         add(response.data, emailReceiver, true)
       }
     })
     .catch(function (error) {
-      console.log('Errore: ' + error.toString())
+      //console.error('Errore: ' + error.toString())
     })
   return result
 }

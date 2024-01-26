@@ -20,7 +20,7 @@ export async function loginUser(username, password) {
     })
     .catch(function (error) {
       localStorage.setItem('authenticated', false)
-      console.log('Errore: ' + error.toString())
+      //console.error('Errore: ' + error.toString())
     })
   return result
 }
@@ -51,21 +51,21 @@ export async function register(name, surname, username, password, email, type) {
             email: email,
           })
           .then(async function (response) {
-            console.log(response.data)
+            //console.error(response.data)
             result = true
           })
           .catch(function (error) {
-            console.log('Errore: ' + error.toString())
+            //console.error('Errore: ' + error.toString())
           })
       } catch (err) {
-        console.log('utente già registrato')
+        //console.error('utente già registrato')
       }
 
       return response
     })
     .catch(function (error) {
       result = false
-      console.log('Errore: ' + error)
+      //console.error('Errore: ' + error)
     })
   return result
 }
@@ -93,7 +93,7 @@ export async function getuserList() {
       }
     })
     .catch(function (error) {
-      console.log('Errore: caricamento utenti registrati: ' + error)
+      //console.error('Errore: caricamento utenti registrati: ' + error)
     })
   return lista
 }
@@ -108,7 +108,7 @@ export async function changeStateUser(id, State) {
       var data = response.data
     })
     .catch(function (error) {
-      console.log('Errore: caricamento utenti registrati: ' + error)
+      //console.error('Errore: caricamento utenti registrati: ' + error)
     })
   return lista
 }
@@ -123,7 +123,7 @@ export async function deleteUser(id) {
     })
     .catch(function (error) {
       ret = false
-      console.log('Errore: eliminazione utente: ' + error)
+      //console.error('Errore: eliminazione utente: ' + error)
     })
   return ret
 }
@@ -138,7 +138,7 @@ export async function aggiornatipologia(id, type) {
     })
     .catch(function (error) {
       ret = false
-      console.log('Errore: eliminazione utente: ' + error)
+      //console.error('Errore: eliminazione utente: ' + error)
     })
   return ret
 }

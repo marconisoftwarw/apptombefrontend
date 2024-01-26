@@ -21,7 +21,7 @@ export async function getList() {
       }
     })
     .catch(function (error) {
-      console.log('Errore: caricamento cimiteri registrati: ' + error)
+      //console.error('Errore: caricamento cimiteri registrati: ' + error)
     })
   return lista
 }
@@ -37,7 +37,7 @@ export async function update(id, name, surname, message, idDefunto) {
       approvazione: true,
     })
     .then(async function (response) {
-      console.log(response.data)
+      //console.error(response.data)
       try {
         await axios
           .post(url + '/user/sendmail', {
@@ -45,19 +45,19 @@ export async function update(id, name, surname, message, idDefunto) {
             email: message,
           })
           .then(async function (response) {
-            console.log(response.data)
+            //console.error(response.data)
             result = true
           })
           .catch(function (error) {
-            console.log('Errore: ' + error.toString())
+            //console.error('Errore: ' + error.toString())
           })
       } catch (err) {
-        console.log('utente già registrato')
+        //console.error('utente già registrato')
       }
       result = true
     })
     .catch(function (error) {
-      console.log('Errore: ' + error.toString())
+      //console.error('Errore: ' + error.toString())
     })
 
   return result

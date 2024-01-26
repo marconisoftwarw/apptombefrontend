@@ -28,7 +28,7 @@ export async function add(
       return true
     })
     .catch(function (error) {
-      console.log('Errore: ' + error.toString())
+      //console.error('Errore: ' + error.toString())
     })
   return result
 }
@@ -68,7 +68,7 @@ export async function getList() {
       }
     })
     .catch(function (error) {
-      console.log('Errore: caricamento cimiteri registrati: ' + error)
+      //console.error('Errore: caricamento cimiteri registrati: ' + error)
     })
   return lista
 }
@@ -83,7 +83,7 @@ export async function eliminaDefunto(id) {
     })
     .catch(function (error) {
       ret = false
-      console.log('Errore: eliminazione utente: ' + error)
+      //console.error('Errore: eliminazione utente: ' + error)
     })
   return ret
 }
@@ -107,7 +107,7 @@ export async function searchbyname(name, regione, citta) {
     })
     .catch(function (error) {
       lista = []
-      console.log('Errore: eliminazione utente: ' + error)
+      //console.error('Errore: eliminazione utente: ' + error)
     })
   return lista
 }
@@ -122,7 +122,7 @@ export async function setFollow(nome, cognome, email, NomeDefunto, id) {
     })
     .catch(function (error) {
       ret = false
-      console.log('Errore: eliminazione utente: ' + error)
+      //console.error('Errore: eliminazione utente: ' + error)
     })
   return ret
 }
@@ -147,7 +147,7 @@ export async function follow(nome, cognome, email, NomeDefunto, idDefunto) {
     })
     .catch(function (error) {
       ret = false
-      console.log('Errore: eliminazione utente: ' + error)
+      //console.error('Errore: eliminazione utente: ' + error)
     })
   return ret
 }

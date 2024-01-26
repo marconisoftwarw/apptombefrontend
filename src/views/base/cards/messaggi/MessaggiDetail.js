@@ -39,9 +39,7 @@ const TablesCustom = () => {
           })
         }
         setList(objectList)
-      } catch (e) {
-        console.log(e)
-      }
+      } catch (e) {}
     }
     fetchData()
   }, [])
