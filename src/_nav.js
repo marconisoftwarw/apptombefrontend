@@ -1,18 +1,16 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import CIcon from '@coreui/icons-react'
 import logo from './assets/dashboard.png'
+import menulogo from './assets/menu.png'
 import { cibAboutMe, cibAbstract, cibBuysellads, cilDrop } from '@coreui/icons'
 import { CNavItem, CNavTitle } from '@coreui/react'
 const _nav = [
   {
     component: CNavItem,
-    name: 'Dashboard',
+    name: '',
     to: '/dashboard',
-    icon: <CIcon icon={logo} height={48} />,
-    badge: {
-      color: 'white',
-      text: 'NEW',
-    },
+    icon: <img src={logo} width={250} />,
   },
   {
     component: CNavTitle,
