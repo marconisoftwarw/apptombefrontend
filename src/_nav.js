@@ -1,16 +1,16 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { cibAboutMe, cibAbstract, cibBuysellads, cilDrop, cilSpeedometer } from '@coreui/icons'
+import logo from './assets/dashboard.png'
+import { cibAboutMe, cibAbstract, cibBuysellads, cilDrop } from '@coreui/icons'
 import { CNavItem, CNavTitle } from '@coreui/react'
-
 const _nav = [
   {
     component: CNavItem,
     name: 'Dashboard',
     to: '/dashboard',
-    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    icon: <CIcon icon={logo} height={48} />,
     badge: {
-      color: 'info',
+      color: 'white',
       text: 'NEW',
     },
   },
