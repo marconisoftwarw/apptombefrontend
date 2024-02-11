@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint react/prop-types: 0 */
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'

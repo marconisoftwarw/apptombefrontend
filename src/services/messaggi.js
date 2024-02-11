@@ -59,14 +59,12 @@ export async function add(messaggio, emailReceiver, isImage) {
 
 export async function addimage(image, emailReceiver) {
   var result = false
-  //console.error(image)
   await axios
     .post(url + '/messaggio/addimage', {
       image: image,
     })
     .then(function (response) {
       if (response.data != false) {
-        // eslint-disable-next-line prettier/prettier
         add(response.data, emailReceiver, true)
       }
     })

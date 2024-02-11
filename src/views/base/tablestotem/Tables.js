@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/alt-text */
+
 import React, { useEffect, useState } from 'react'
 import {
   CButton,
