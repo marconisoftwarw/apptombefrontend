@@ -110,65 +110,72 @@ const Tables = () => {
 
   return (
     <>
-      <CButton onClick={() => gotoadd()}>Inserisci nuovo cimitero</CButton>
-      <p></p>
-      <p></p>
-      <CTable align="middle" className="mb-0 border" hover responsive>
-        <CTableHead color="light">
-          <CTableRow>
-            <CTableHeaderCell className="text-center">
-              <CIcon icon={cilPeople} />
-            </CTableHeaderCell>
-            <CTableHeaderCell>Comune</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Regione</CTableHeaderCell>
-            <CTableHeaderCell>Nazione</CTableHeaderCell>
-            <CTableHeaderCell>Aggiungi Urna</CTableHeaderCell>
-            <CTableHeaderCell>Elimina Cimitero</CTableHeaderCell>
-            <CTableHeaderCell>Visualizza Urne Cimitero</CTableHeaderCell>
-            <CTableHeaderCell>Stampa Lista Urne</CTableHeaderCell>
-          </CTableRow>
-        </CTableHead>
-        <CTableBody>
-          {users.map((item, index) => (
-            <CTableRow v-for="item in tableItems" key={index}>
-              <CTableDataCell className="text-center">
-                <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
-              </CTableDataCell>
-              <CTableDataCell>
-                <div>{item.user.name}</div>
-              </CTableDataCell>
-              <CTableDataCell className="text-center">{item.provincia}</CTableDataCell>
-              <CTableDataCell>
-                <div className="clearfix">
-                  <div className="float-start">
-                    <strong>{item.cap}</strong>
-                  </div>
-                </div>
-              </CTableDataCell>
-              <CTableDataCell>
-                <CButton color="dark" variant="outline" onClick={() => addtotem(item)}>
-                  Aggiungi Urna
-                </CButton>
-              </CTableDataCell>
-              <CTableDataCell>
-                <CButton color="danger" variant="outline" onClick={() => deleteCimiteroTable(item)}>
-                  Delete Cimitero
-                </CButton>
-              </CTableDataCell>
-              <CTableDataCell>
-                <CButton color="success" variant="outline" onClick={() => openlistaurne(item)}>
-                  Visualizza Urne Cimitero
-                </CButton>
-              </CTableDataCell>
-              <CTableDataCell>
-                <CButton color="success" variant="outline" onClick={() => exportPDF(item)}>
-                  Stampa Lista Urne
-                </CButton>
-              </CTableDataCell>
+      <div style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+        <CButton onClick={() => gotoadd()}>Inserisci nuovo cimitero</CButton>
+        <p></p>
+        <p></p>
+        <p></p>
+        <CTable align="middle" hover responsive style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+          <CTableHead color="light">
+            <CTableRow>
+              <CTableHeaderCell className="text-center">
+                <CIcon icon={cilPeople} />
+              </CTableHeaderCell>
+              <CTableHeaderCell>Comune</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Regione</CTableHeaderCell>
+              <CTableHeaderCell>Nazione</CTableHeaderCell>
+              <CTableHeaderCell>Aggiungi Urna</CTableHeaderCell>
+              <CTableHeaderCell>Elimina Cimitero</CTableHeaderCell>
+              <CTableHeaderCell>Visualizza Urne Cimitero</CTableHeaderCell>
+              <CTableHeaderCell>Stampa Lista Urne</CTableHeaderCell>
             </CTableRow>
-          ))}
-        </CTableBody>
-      </CTable>
+          </CTableHead>
+          <CTableBody>
+            {users.map((item, index) => (
+              <CTableRow v-for="item in tableItems" key={index}>
+                <CTableDataCell className="text-center">
+                  <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
+                </CTableDataCell>
+                <CTableDataCell>
+                  <div>{item.user.name}</div>
+                </CTableDataCell>
+                <CTableDataCell className="text-center">{item.provincia}</CTableDataCell>
+                <CTableDataCell>
+                  <div className="clearfix">
+                    <div className="float-start">
+                      <strong>{item.cap}</strong>
+                    </div>
+                  </div>
+                </CTableDataCell>
+                <CTableDataCell>
+                  <CButton color="dark" variant="outline" onClick={() => addtotem(item)}>
+                    Aggiungi Urna
+                  </CButton>
+                </CTableDataCell>
+                <CTableDataCell>
+                  <CButton
+                    color="danger"
+                    variant="outline"
+                    onClick={() => deleteCimiteroTable(item)}
+                  >
+                    Delete Cimitero
+                  </CButton>
+                </CTableDataCell>
+                <CTableDataCell>
+                  <CButton color="success" variant="outline" onClick={() => openlistaurne(item)}>
+                    Visualizza Urne Cimitero
+                  </CButton>
+                </CTableDataCell>
+                <CTableDataCell>
+                  <CButton color="success" variant="outline" onClick={() => exportPDF(item)}>
+                    Stampa Lista Urne
+                  </CButton>
+                </CTableDataCell>
+              </CTableRow>
+            ))}
+          </CTableBody>
+        </CTable>
+      </div>
     </>
   )
 }

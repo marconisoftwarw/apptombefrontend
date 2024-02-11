@@ -6,9 +6,9 @@ const DefaultLayout = () => {
     <div>
       <AppSidebar />
       <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-        <AppHeader />
-        <div className="body flex-grow-1 px-3">
-          <AppContent />
+        <AppHeader style={{ backgroundColor: 'rgb(176, 219, 240)' }} />
+        <div className="body flex-grow-1 px-3" style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+          <AppContent style={{ backgroundColor: 'rgb(176, 219, 240)' }}></AppContent>
         </div>
         <AppFooter />
       </div>
