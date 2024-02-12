@@ -82,17 +82,36 @@ const Dashboard = () => {
 
   return (
     <>
-      <CTable align="middle" className="mb-0 border" hover responsive>
-        <CTableHead color="light">
-          <CTableRow>
-            <CTableHeaderCell className="text-center">
+      <CTable
+        align="middle"
+        className="mb-0 border"
+        hover
+        responsive
+        style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+      >
+        <CTableHead color="light" style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+          <CTableRow style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
               <CIcon icon={cilPeople} />
             </CTableHeaderCell>
-            <CTableHeaderCell>Ruolo</CTableHeaderCell>
-            <CTableHeaderCell>Utente</CTableHeaderCell>
-            <CTableHeaderCell>Utilizzo</CTableHeaderCell>
-            <CTableHeaderCell>Registrazione</CTableHeaderCell>
-            <CTableHeaderCell>Azioni</CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Ruolo
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Utente
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Utilizzo
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Registrazione
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Azioni
+            </CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
