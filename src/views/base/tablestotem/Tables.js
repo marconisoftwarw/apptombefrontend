@@ -14,7 +14,10 @@ import { cifIt } from '@coreui/icons'
 import avatar1 from 'src/assets/images/totem.jpeg'
 import { deleteTotem, getList } from '../../../services/totem'
 import { url } from '../../../services/settings'
-
+import urnaAvatar from 'src/assets/urna.png'
+import avatarvisualizza from 'src/assets/visualizza.png'
+import avatarstampa from 'src/assets/stampa.png'
+import avatardelete from 'src/assets/delete.png'
 const TablesTotem = (props) => {
   const [users, setUserList] = useState([])
   useEffect(() => {
@@ -80,18 +83,46 @@ const TablesTotem = (props) => {
       <CTable align="middle" className="mb-0 border" hover responsive>
         <CTableHead color="light">
           <CTableRow>
-            <CTableHeaderCell className="text-center"></CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Id Urna</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Nome Urna</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">IdCimitero</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Elimina Urna</CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            ></CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
+              Id Urna
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
+              Nome Urna
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
+              IdCimitero
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
+              Elimina Urna
+            </CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
           {users.map((item, index) => (
             <CTableRow v-for="item in tableItems" key={index}>
               <CTableDataCell className="text-center">
-                <img src={item.avatar.src} width={80} height={80} style={{ border: '1px solid' }} />
+                <img
+                  src={urnaAvatar}
+                  width={50}
+                  height={50}
+                  style={{ backgroundColor: 'white', borderRadius: '5px' }}
+                />
               </CTableDataCell>
               <CTableDataCell className="text-center">
                 <div>{item.id}</div>
@@ -101,21 +132,16 @@ const TablesTotem = (props) => {
               </CTableDataCell>
               <CTableDataCell className="text-center">{item.idCimitero}</CTableDataCell>
               <CTableDataCell className="text-center">
-                <CButton color="danger" variant="outline" onClick={() => deleteTotemUI(item)}>
-                  Elimina Urna
-                </CButton>
+                <img src={avatardelete} width={40} onClick={() => deleteTotemUI(item)} />
               </CTableDataCell>
               {item.istemplatevalid == true ? (
                 <>
                   <CTableDataCell className="text-center" key={Math.random()}>
-                    <CButton
-                      key={Math.random()}
-                      color="success"
-                      variant="outline"
+                    <img
+                      src={avatarvisualizza}
+                      width={140}
                       onClick={() => showHtml(item.id, item.idCimitero)}
-                    >
-                      Visualizza Template
-                    </CButton>
+                    />
                   </CTableDataCell>
                 </>
               ) : (
