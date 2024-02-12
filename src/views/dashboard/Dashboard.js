@@ -16,8 +16,11 @@ import avatar1 from 'src/assets/images/avatars/1.jpg'
 import { aggiornatipologia, changeStateUser, deleteUser, getuserList } from '../../services/user'
 import Dropdown from 'react-bootstrap/Dropdown'
 import 'react-toastify/dist/ReactToastify.css'
-
+import logo from './../../assets/usericon.png'
+import deletelogo from './../../assets/delete.png'
+import enablelogo from './../../assets/enable.png'
 /* eslint-disable react/prop-types */
+
 function DropdownCustomUser(props) {
   const userSelect = async (value) => {
     await aggiornatipologia(props.id, value)
@@ -26,9 +29,7 @@ function DropdownCustomUser(props) {
 
   return (
     <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Tipologia
-      </Dropdown.Toggle>
+      <Dropdown.Toggle>Tipologia</Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => userSelect('ADMIN', props.id)}>Admin</Dropdown.Item>
         <Dropdown.Item onClick={() => userSelect('ADMIN1')}>Admin User</Dropdown.Item>
@@ -58,7 +59,7 @@ const Dashboard = () => {
           usage: {
             value: 42,
             period: '',
-            color: 'success',
+            color: 'warning',
           },
           activity: user.dataregistrazione,
         }),
@@ -87,19 +88,21 @@ const Dashboard = () => {
             <CTableHeaderCell className="text-center">
               <CIcon icon={cilPeople} />
             </CTableHeaderCell>
+            <CTableHeaderCell>Ruolo</CTableHeaderCell>
             <CTableHeaderCell>Utente</CTableHeaderCell>
-            <CTableHeaderCell>Utilizzo Medio</CTableHeaderCell>
+            <CTableHeaderCell>Utilizzo</CTableHeaderCell>
             <CTableHeaderCell>Registrazione</CTableHeaderCell>
-            <CTableHeaderCell>Abilitia/Disabilita</CTableHeaderCell>
-            <CTableHeaderCell></CTableHeaderCell>
-            <CTableHeaderCell>Modifica Tipologia</CTableHeaderCell>
+            <CTableHeaderCell>Azioni</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
           {users.map((item, index) => (
             <CTableRow v-for="item in tableItems" key={index}>
               <CTableDataCell className="text-center">
-                <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
+                <CAvatar src={logo} size="md" />
+              </CTableDataCell>
+              <CTableDataCell>
+                <DropdownCustomUser id={item.id} />
               </CTableDataCell>
               <CTableDataCell>
                 <div>{item.user.name}</div>
@@ -121,21 +124,12 @@ const Dashboard = () => {
                 <CProgress thin color={item.usage.color} value={item.usage.value} />
               </CTableDataCell>
               <CTableDataCell>
-                <div className="small text-medium-emphasis">Last login</div>
                 <strong>{item.activity}</strong>
               </CTableDataCell>
-              <CTableDataCell className="text-center">
-                <CButton color="primary" onClick={() => updateStateUser(item)} active>
-                  Enable/Disable
-                </CButton>
-              </CTableDataCell>
-              <CTableDataCell className="text-center">
-                <CButton color="danger" onClick={() => deleteUserTable(item)} active>
-                  Delete
-                </CButton>
-              </CTableDataCell>
-              <CTableDataCell>
-                <DropdownCustomUser id={item.id} />
+
+              <CTableDataCell className="text-left">
+                <CAvatar src={enablelogo} size="md" onClick={() => updateStateUser(item)} />
+                <CAvatar src={deletelogo} size="md" onClick={() => deleteUserTable(item)} />
               </CTableDataCell>
             </CTableRow>
           ))}
