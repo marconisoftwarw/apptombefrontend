@@ -18,7 +18,10 @@ import avatar1 from 'src/assets/images/cimitero.png'
 import { deleteCimitero, getList } from '../../../services/cimitero'
 import { getList as gethardwaretotem } from '../../../services/hardwaretotem'
 import { getList as getListaTotem } from '../../../services/totem'
-
+import avatar2 from 'src/assets/aggiungi.png'
+import avatarvisualizza from 'src/assets/visualizza.png'
+import avatarstampa from 'src/assets/stampa.png'
+import avatardelete from 'src/assets/delete.png'
 const Tables = () => {
   const navigate = useNavigate()
   const [users, setUserList] = useState([])
@@ -124,16 +127,27 @@ const Tables = () => {
         >
           <CTableHead color="light">
             <CTableRow>
-              <CTableHeaderCell className="text-center">
-                <CIcon icon={cilPeople} />
+              <CTableHeaderCell
+                className="text-center"
+                style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+              ></CTableHeaderCell>
+              <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+                {' '}
+                Comune
               </CTableHeaderCell>
-              <CTableHeaderCell>Comune</CTableHeaderCell>
-              <CTableHeaderCell className="text-center">Regione</CTableHeaderCell>
-              <CTableHeaderCell>Nazione</CTableHeaderCell>
-              <CTableHeaderCell>Aggiungi Urna</CTableHeaderCell>
-              <CTableHeaderCell>Elimina Cimitero</CTableHeaderCell>
-              <CTableHeaderCell>Visualizza Urne Cimitero</CTableHeaderCell>
-              <CTableHeaderCell>Stampa Lista Urne</CTableHeaderCell>
+              <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+                Regione
+              </CTableHeaderCell>
+              <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+                Paese
+              </CTableHeaderCell>
+              <CTableHeaderCell
+                className="text-center"
+                style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+              >
+                {' '}
+                Azioni
+              </CTableHeaderCell>
             </CTableRow>
           </CTableHead>
           <CTableBody>
@@ -154,28 +168,21 @@ const Tables = () => {
                   </div>
                 </CTableDataCell>
                 <CTableDataCell>
-                  <CButton color="dark" variant="outline" onClick={() => addtotem(item)}>
-                    Aggiungi Urna
-                  </CButton>
-                </CTableDataCell>
-                <CTableDataCell>
-                  <CButton
-                    color="danger"
-                    variant="outline"
-                    onClick={() => deleteCimiteroTable(item)}
-                  >
-                    Delete Cimitero
-                  </CButton>
-                </CTableDataCell>
-                <CTableDataCell>
-                  <CButton color="success" variant="outline" onClick={() => openlistaurne(item)}>
-                    Visualizza Urne Cimitero
-                  </CButton>
-                </CTableDataCell>
-                <CTableDataCell>
-                  <CButton color="success" variant="outline" onClick={() => exportPDF(item)}>
-                    Stampa Lista Urne
-                  </CButton>
+                  <img
+                    src={avatar2}
+                    style={{ marginLeft: 200 }}
+                    width={140}
+                    onClick={() => addtotem(item)}
+                  />
+
+                  <img src={avatarvisualizza} width={140} onClick={() => openlistaurne(item)} />
+                  <img
+                    src={avatarstampa}
+                    width={140}
+                    style={{ marginTop: 5 }}
+                    onClick={() => exportPDF(item)}
+                  />
+                  <img src={avatardelete} width={40} onClick={() => deleteCimiteroTable(item)} />
                 </CTableDataCell>
               </CTableRow>
             ))}
