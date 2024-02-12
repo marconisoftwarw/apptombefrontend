@@ -14,7 +14,7 @@ import {
 import { deleteCimitero, getList } from '../../../services/hardwaretotem'
 import { getList as getListCimitero } from '../../../services/cimitero'
 import hardware from '../../../assets/images/hardware.webp'
-
+import avatarstampa from 'src/assets/totem.png'
 const TablesTotemHardware = () => {
   const navigate = useNavigate()
   const [users, setUserList] = useState([])
@@ -57,17 +57,37 @@ const TablesTotemHardware = () => {
       <CTable align="middle" className="mb-0 border" hover responsive>
         <CTableHead color="light">
           <CTableRow>
-            <CTableHeaderCell className="text-center">Totem</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">IdUrna</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Id Cimitero</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Cimitero</CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
+              Totem
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
+              IdUrna
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
+              Id Cimitero
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
+              Cimitero
+            </CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
           {users.map((item, index) => (
             <CTableRow v-for="item in tableItems" key={index}>
               <CTableDataCell className="text-center">
-                <img src={hardware} width={80} height={80} style={{ border: '1px solid' }} />
+                <img src={avatarstampa} width={50} height={50} />
               </CTableDataCell>
               <CTableDataCell className="text-center">
                 <div>{item.id}</div>
