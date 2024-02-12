@@ -13,7 +13,7 @@ import {
 } from '@coreui/react'
 import { deleteCimitero, getList } from '../../../services/hardwaretotem'
 import { getList as getListCimitero } from '../../../services/cimitero'
-import hardware from '../../../assets/images/hardware.webp'
+import avatardelete from 'src/assets/delete.png'
 import avatarstampa from 'src/assets/totem.png'
 const TablesTotemHardware = () => {
   const navigate = useNavigate()
@@ -99,9 +99,7 @@ const TablesTotemHardware = () => {
                 <div>{item.Nome}</div>
               </CTableDataCell>
               <CTableDataCell className="text-center">
-                <CButton color="danger" variant="outline" onClick={() => deleteCimitero(item.id)}>
-                  Elimina Totem
-                </CButton>
+                <img src={avatardelete} width={50} onClick={() => deleteCimitero(item)} />
               </CTableDataCell>
             </CTableRow>
           ))}

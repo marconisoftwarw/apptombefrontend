@@ -70,12 +70,30 @@ const TablesCustom = () => {
       <CTable align="middle" className="mb-0 border" hover responsive>
         <CTableHead color="light">
           <CTableRow>
-            <CTableHeaderCell className="text-center">id</CTableHeaderCell>
-            <CTableHeaderCell>Nome</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Cognome</CTableHeaderCell>
-            <CTableHeaderCell>Messaggio</CTableHeaderCell>
-            <CTableHeaderCell>Nome Defunto</CTableHeaderCell>
-            <CTableHeaderCell>Approvazione</CTableHeaderCell>
+            <CTableHeaderCell
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+              className="text-center"
+            >
+              id
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Nome
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+              className="text-center"
+            >
+              Cognome
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Messaggio
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Nome Defunto
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Approvazione
+            </CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>

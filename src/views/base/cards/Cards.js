@@ -91,14 +91,24 @@ const TablesCustom = () => {
     <>
       <p></p>
       <p></p>
-      <CTable align="middle" className="mb-0 border" hover responsive>
+      <CTable align="middle" hover responsive>
         <CTableHead color="light">
           <CTableRow>
-            <CTableHeaderCell>id</CTableHeaderCell>
-            <CTableHeaderCell>Nome</CTableHeaderCell>
-            <CTableHeaderCell>Cognome</CTableHeaderCell>
-            <CTableHeaderCell>Cimitero</CTableHeaderCell>
-            <CTableHeaderCell>Configura Layout</CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              id
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Nome
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Cognome
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Cimitero
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Configura Layout
+            </CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
@@ -156,29 +166,11 @@ const Cards = () => {
 
   if (cimiteriList.length > 0) {
     return (
-      <CRow>
-        <CCol xs={12}>
-          <CCard className="mb-4">
-            <CCardHeader>
-              <strong>Acquisto Spazio</strong>
-            </CCardHeader>
-            <CCardBody>
-              <p className="text-medium-emphasis small">
-                Per effettuare un acquisto seleziona il cimitero e inserisci una delle immagini che
-                vuoi visualizzare sui monitor
-              </p>
-              <CCard style={{ width: '30rem' }}>
-                <CCardImage orientation="top" src={ReactImg} />
-                <CCardBody>
-                  <CCardTitle>Acquista uno spazio</CCardTitle>
-                  <CCardText>1) Seleziona sotto il defunto </CCardText>
-                  <p></p>
-                  <CCardText>2) Seleziona il layout da visualizzare</CCardText>
-                  <p></p>
-                </CCardBody>
-              </CCard>
-            </CCardBody>
-          </CCard>
+      <CRow style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+        <CCol style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+          <CCardHeader style={{ backgroundColor: 'rgb(176, 219, 240)', marginTop: '30px' }}>
+            <strong>Acquisto Spazio</strong>
+          </CCardHeader>
 
           <TablesCustom />
         </CCol>

@@ -63,19 +63,48 @@ const TablesCustom = () => {
     <>
       <p></p>
       <p></p>
-      <CTable align="middle" className="mb-0 border" hover responsive>
-        <CTableHead color="light">
+      <CTable align="middle" responsive>
+        <CTableHead>
           <CTableRow>
-            <CTableHeaderCell className="text-center">id</CTableHeaderCell>
-            <CTableHeaderCell>Nome</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Cognome</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Soprannome</CTableHeaderCell>
-            <CTableHeaderCell>Sepoltura</CTableHeaderCell>
-            <CTableHeaderCell>Cimitero</CTableHeaderCell>
-            <CTableHeaderCell>Data Morte</CTableHeaderCell>
-            <CTableHeaderCell>Data Nascita</CTableHeaderCell>
-            <CTableHeaderCell>Utente Admin</CTableHeaderCell>
-            <CTableHeaderCell>Azioni</CTableHeaderCell>
+            <CTableHeaderCell
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+              className="text-center"
+            >
+              id
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Nome
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+              className="text-center"
+            >
+              Cognome
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+              className="text-center"
+            >
+              Soprannome
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Sepoltura
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Cimitero
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Data Morte
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Data Nascita
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Utente Admin
+            </CTableHeaderCell>
+            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+              Azioni
+            </CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
