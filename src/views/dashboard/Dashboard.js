@@ -88,9 +88,8 @@ const Dashboard = () => {
               <CIcon icon={cilPeople} />
             </CTableHeaderCell>
             <CTableHeaderCell>Utente</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Nazione</CTableHeaderCell>
             <CTableHeaderCell>Utilizzo Medio</CTableHeaderCell>
-            <CTableHeaderCell>Data Registrazione</CTableHeaderCell>
+            <CTableHeaderCell>Registrazione</CTableHeaderCell>
             <CTableHeaderCell>Abilitia/Disabilita</CTableHeaderCell>
             <CTableHeaderCell></CTableHeaderCell>
             <CTableHeaderCell>Modifica Tipologia</CTableHeaderCell>
@@ -109,9 +108,7 @@ const Dashboard = () => {
                   {item.user.registered}
                 </div>
               </CTableDataCell>
-              <CTableDataCell className="text-center">
-                <CIcon size="xl" icon={item.country.flag} title={item.country.name} />
-              </CTableDataCell>
+
               <CTableDataCell>
                 <div className="clearfix">
                   <div className="float-start">

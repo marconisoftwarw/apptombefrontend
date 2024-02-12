@@ -112,10 +112,16 @@ const Tables = () => {
     <>
       <div style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
         <CButton onClick={() => gotoadd()}>Inserisci nuovo cimitero</CButton>
+
         <p></p>
         <p></p>
-        <p></p>
-        <CTable align="middle" hover responsive style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
+        <CTable
+          align="middle"
+          className="mb-0 border"
+          hover
+          responsive
+          style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+        >
           <CTableHead color="light">
             <CTableRow>
               <CTableHeaderCell className="text-center">
