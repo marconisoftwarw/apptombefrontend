@@ -52,13 +52,30 @@ const FollowTables = () => {
       <br></br>
       <br></br>
       <table>
-        Nome:
-        <input type="text" onChange={saveName} />
-        Cognome:
-        <input type="text" onChange={savesurname} />
-        Email:
-        <input type="text" onChange={saveEmail} />
+        <input
+          className="custom-textbox"
+          type="text"
+          placeholder="Nome"
+          onChange={saveName}
+          style={{ marginLeft: '10%', width: '200px' }}
+        />
+        <input
+          className="custom-textbox"
+          type="text"
+          placeholder="Cognome"
+          onChange={savesurname}
+          style={{ marginLeft: '30%', width: '200px' }}
+        />
+        <input
+          className="custom-textbox"
+          type="text"
+          placeholder="Email"
+          onChange={saveEmail}
+          style={{ marginLeft: '50%', width: '200px' }}
+        />
       </table>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <br></br>
