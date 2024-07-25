@@ -49,13 +49,7 @@ const FollowTables = () => {
     email = event.target.value
   }
   return (
-    <div
-      style={{
-        backgroundImage: `url(${sfondo})`,
-        backgroundSize: 'cover',
-        height: '100%',
-      }}
-    >
+    <div className="background-container">
       <Container>
         <br></br>
         <br></br>

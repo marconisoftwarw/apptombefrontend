@@ -11,7 +11,17 @@
   font-size: 50px;
   text-align: center;
 }
-
+.background-container {
+  background-image: url('../../../assets/sfondo.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
 .custom-button {
   position: absolute;
   left: 90px;
