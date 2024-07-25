@@ -63,7 +63,16 @@ const Follow = () => {
       }}
     >
       <CForm style={{ width: 400, marginLeft: 400, height: 1000 }}>
-        <div style={{ width: 400, height: 400, backgroundColor: 'white', alignContent: 'center' }}>
+        <div
+          style={{
+            width: 400,
+            height: 400,
+            backgroundColor: 'white',
+            alignContent: 'center',
+            borderRadius: '30px',
+            marginBottom: '20px',
+          }}
+        >
           <div className="App">
             <h1 className="custom-heading">Segui un defunto</h1>
           </div>
