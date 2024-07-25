@@ -75,41 +75,41 @@ const Follow = () => {
         >
           <div className="App">
             <h1 className="custom-heading">Segui un defunto</h1>
-          </div>
-          <p className="text-medium-emphasis">Seleziona il comune di Residenza</p>
-          <p></p>
-          <CInputGroup className="mb-3">
-            <CInputGroupText>
-              <CIcon icon={cilUser} />
-            </CInputGroupText>
-            <CFormInput
+
+            <p className="text-medium-emphasis" style={{ marginLeft: '30px' }}>
+              Seleziona il comune di Residenza
+            </p>
+
+            <input
+              className="custom-textbox"
+              type="text"
               placeholder="Nome defunto"
-              autoComplete="Nome defunto"
               onChange={changeTextUsername}
+              style={{ marginTop: '30px' }}
             />
-          </CInputGroup>
-
-          <CInputGroup className="mb-3">
-            <CInputGroupText>
-              <CIcon icon={cilUser} />
-            </CInputGroupText>
-            <CFormInput placeholder="Regione" autoComplete="Regione" onChange={changeTextRegione} />
-          </CInputGroup>
-
-          <CInputGroup className="mb-3">
-            <CInputGroupText>
-              <CIcon icon={cilUser} />
-            </CInputGroupText>
-            <CFormInput placeholder="Citta" autoComplete="Citta" onChange={changeTextCitta} />
-          </CInputGroup>
-
-          <CRow>
-            <CCol xs={6}>
-              <button className="custom-button" onClick={() => search()}>
-                Ricerca
-              </button>
-            </CCol>
-          </CRow>
+            <p></p>
+            <input
+              className="custom-textbox"
+              type="text"
+              placeholder="Regione"
+              onChange={changeTextRegione}
+              style={{ marginTop: '90px' }}
+            />
+            <input
+              className="custom-textbox"
+              type="text"
+              placeholder="Citta"
+              onChange={changeTextCitta}
+              style={{ marginTop: '150px' }}
+            />
+            <button
+              className="custom-button"
+              onClick={() => search()}
+              style={{ marginTop: '200px' }}
+            >
+              Ricerca
+            </button>
+          </div>
         </div>
       </CForm>
       <ToastContainer />

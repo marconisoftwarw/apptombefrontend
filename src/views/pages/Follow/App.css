@@ -1,23 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300&display=swap');
 
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
 .custom-heading {
   font-family: 'Red Hat Text', sans-serif;
   font-weight: 300; /* Light */
-  font-size: 30px;
-  text-align: left;
+  font-size: 50px;
+  text-align: center;
 }
 
 .custom-button {
   position: absolute;
-
-  left: 411px;
+  left: 90px;
   width: 230px;
   height: 51px;
-  background: #2B87BA 0% 0% no-repeat padding-box;
+  background: #2b87ba 0% 0% no-repeat padding-box;
   border-radius: 25px;
   opacity: 1;
   border: none;
   color: white;
   font-size: 16px;
   cursor: pointer;
+}
+
+.custom-textbox {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  width: 350px;
+  height: 41px;
+  border: 3px solid #2b87ba;
+  border-radius: 25px;
+  opacity: 1;
+  padding: 10px;
+  font-size: 16px;
 }
