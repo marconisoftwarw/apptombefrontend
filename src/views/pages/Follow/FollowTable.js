@@ -13,11 +13,12 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import 'react-toastify/dist/ReactToastify.css'
-
+import sfondo from 'src/assets/sfondo.png'
 import { toast, ToastContainer } from 'react-toastify'
 import { cilUser } from '@coreui/icons'
 import { follow } from 'src/services/defunto'
-
+import { Container } from '@mui/material'
+import './App.css'
 const FollowTables = () => {
   const notify = (message) => toast(message)
   const navigate = useNavigate()
@@ -48,79 +49,87 @@ const FollowTables = () => {
     email = event.target.value
   }
   return (
-    <CContainer>
-      <br></br>
-      <br></br>
-      <table>
-        <input
-          className="custom-textbox"
-          type="text"
-          placeholder="Nome"
-          onChange={saveName}
-          style={{ marginLeft: '10%', width: '200px' }}
-        />
-        <input
-          className="custom-textbox"
-          type="text"
-          placeholder="Cognome"
-          onChange={savesurname}
-          style={{ marginLeft: '30%', width: '200px' }}
-        />
-        <input
-          className="custom-textbox"
-          type="text"
-          placeholder="Email"
-          onChange={saveEmail}
-          style={{ marginLeft: '50%', width: '200px' }}
-        />
-      </table>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      {objectList.length > 0 ? (
-        <CTable align="middle" className="mb-0 border" hover responsive>
-          <CTableHead color="light">
-            <CTableRow>
-              <CTableHeaderCell className="text-center">
-                <CIcon icon={cilUser} />
-              </CTableHeaderCell>
-              <CTableHeaderCell>Nome</CTableHeaderCell>
-              <CTableHeaderCell>Cognome</CTableHeaderCell>
-              <CTableHeaderCell>Cimitero</CTableHeaderCell>
-              <CTableHeaderCell>Segui gli aggiornamenti</CTableHeaderCell>
-            </CTableRow>
-          </CTableHead>
-          <CTableBody>
-            {objectList.map((item, index) => (
-              <CTableRow v-for="item in tableItems" key={index}>
-                <CTableDataCell></CTableDataCell>
-                <CTableDataCell>
-                  <div>{item.nome}</div>
-                </CTableDataCell>
-                <CTableDataCell>
-                  <div className="small text-medium-emphasis">{item.cognome}</div>
-                </CTableDataCell>
-                <CTableDataCell>
-                  <div className="small text-medium-emphasis">{item.cimitero}</div>
-                </CTableDataCell>
-                <CTableDataCell>
-                  <div align="center" className="small text-medium-emphasis">
-                    <CButton color="success" variant="outline" onClick={() => followUser(item)}>
-                      Segui
-                    </CButton>
-                  </div>
-                </CTableDataCell>
+    <div
+      style={{
+        backgroundImage: `url(${sfondo})`,
+        backgroundSize: 'cover',
+        height: '100%',
+      }}
+    >
+      <Container>
+        <br></br>
+        <br></br>
+        <table>
+          <input
+            className="custom-textbox"
+            type="text"
+            placeholder="Nome"
+            onChange={saveName}
+            style={{ marginLeft: '10%', width: '200px' }}
+          />
+          <input
+            className="custom-textbox"
+            type="text"
+            placeholder="Cognome"
+            onChange={savesurname}
+            style={{ marginLeft: '30%', width: '200px' }}
+          />
+          <input
+            className="custom-textbox"
+            type="text"
+            placeholder="Email"
+            onChange={saveEmail}
+            style={{ marginLeft: '50%', width: '200px' }}
+          />
+        </table>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {objectList.length > 0 ? (
+          <CTable align="middle" className="mb-0 border" hover responsive>
+            <CTableHead color="light">
+              <CTableRow>
+                <CTableHeaderCell className="text-center">
+                  <CIcon icon={cilUser} />
+                </CTableHeaderCell>
+                <CTableHeaderCell>Nome</CTableHeaderCell>
+                <CTableHeaderCell>Cognome</CTableHeaderCell>
+                <CTableHeaderCell>Cimitero</CTableHeaderCell>
+                <CTableHeaderCell>Segui gli aggiornamenti</CTableHeaderCell>
               </CTableRow>
-            ))}
-          </CTableBody>
-        </CTable>
-      ) : (
-        <></>
-      )}
-      <ToastContainer />
-    </CContainer>
+            </CTableHead>
+            <CTableBody>
+              {objectList.map((item, index) => (
+                <CTableRow v-for="item in tableItems" key={index}>
+                  <CTableDataCell></CTableDataCell>
+                  <CTableDataCell>
+                    <div>{item.nome}</div>
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    <div className="small text-medium-emphasis">{item.cognome}</div>
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    <div className="small text-medium-emphasis">{item.cimitero}</div>
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    <div align="center" className="small text-medium-emphasis">
+                      <CButton color="success" variant="outline" onClick={() => followUser(item)}>
+                        Segui
+                      </CButton>
+                    </div>
+                  </CTableDataCell>
+                </CTableRow>
+              ))}
+            </CTableBody>
+          </CTable>
+        ) : (
+          <></>
+        )}
+        <ToastContainer />
+      </Container>
+    </div>
   )
 }
 

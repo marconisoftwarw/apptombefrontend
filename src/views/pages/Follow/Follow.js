@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { CButton, CCol, CForm, CFormInput, CInputGroup, CInputGroupText, CRow } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilUser } from '@coreui/icons'
+import { CForm } from '@coreui/react'
 import { searchbyname as searchdefunto } from '../../../services/defunto'
 import { getList as getListCimitero } from '../../../services/cimitero'
 import { ToastContainer } from 'react-toastify'
