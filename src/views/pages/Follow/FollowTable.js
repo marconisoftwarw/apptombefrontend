@@ -50,7 +50,7 @@ const FollowTables = () => {
   }
   return (
     <div className="background-container">
-      <Container>
+      <div style={{ height: '100%', width: '80%' }}>
         <br></br>
         <br></br>
         <table>
@@ -59,21 +59,21 @@ const FollowTables = () => {
             type="text"
             placeholder="Nome"
             onChange={saveName}
-            style={{ marginLeft: '10%', width: '200px' }}
+            style={{ marginLeft: '20%', width: '200px' }}
           />
           <input
             className="custom-textbox"
             type="text"
             placeholder="Cognome"
             onChange={savesurname}
-            style={{ marginLeft: '30%', width: '200px' }}
+            style={{ marginLeft: '40%', width: '200px' }}
           />
           <input
             className="custom-textbox"
             type="text"
             placeholder="Email"
             onChange={saveEmail}
-            style={{ marginLeft: '50%', width: '200px' }}
+            style={{ marginLeft: '60%', width: '200px' }}
           />
         </table>
         <br></br>
@@ -96,7 +96,11 @@ const FollowTables = () => {
             </CTableHead>
             <CTableBody>
               {objectList.map((item, index) => (
-                <CTableRow v-for="item in tableItems" key={index}>
+                <CTableRow
+                  v-for="item in tableItems"
+                  key={index}
+                  style={{ backgroundColor: 'white' }}
+                >
                   <CTableDataCell></CTableDataCell>
                   <CTableDataCell>
                     <div>{item.nome}</div>
@@ -122,7 +126,24 @@ const FollowTables = () => {
           <></>
         )}
         <ToastContainer />
-      </Container>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br> <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br> <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br> <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+      </div>
     </div>
   )
 }
