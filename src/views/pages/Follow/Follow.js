@@ -63,41 +63,43 @@ const Follow = () => {
       }}
     >
       <CForm style={{ width: 400, marginLeft: 400, height: 1000 }}>
-        <h1>Segui un defunto</h1>
-        <p className="text-medium-emphasis">Seleziona il comune di Residenza</p>
-        <p></p>
-        <CInputGroup className="mb-3">
-          <CInputGroupText>
-            <CIcon icon={cilUser} />
-          </CInputGroupText>
-          <CFormInput
-            placeholder="Nome defunto"
-            autoComplete="Nome defunto"
-            onChange={changeTextUsername}
-          />
-        </CInputGroup>
+        <div style={{ width: 400, height: 400, backgroundColor: 'white' }}>
+          <h1>Segui un defunto</h1>
+          <p className="text-medium-emphasis">Seleziona il comune di Residenza</p>
+          <p></p>
+          <CInputGroup className="mb-3">
+            <CInputGroupText>
+              <CIcon icon={cilUser} />
+            </CInputGroupText>
+            <CFormInput
+              placeholder="Nome defunto"
+              autoComplete="Nome defunto"
+              onChange={changeTextUsername}
+            />
+          </CInputGroup>
 
-        <CInputGroup className="mb-3">
-          <CInputGroupText>
-            <CIcon icon={cilUser} />
-          </CInputGroupText>
-          <CFormInput placeholder="Regione" autoComplete="Regione" onChange={changeTextRegione} />
-        </CInputGroup>
+          <CInputGroup className="mb-3">
+            <CInputGroupText>
+              <CIcon icon={cilUser} />
+            </CInputGroupText>
+            <CFormInput placeholder="Regione" autoComplete="Regione" onChange={changeTextRegione} />
+          </CInputGroup>
 
-        <CInputGroup className="mb-3">
-          <CInputGroupText>
-            <CIcon icon={cilUser} />
-          </CInputGroupText>
-          <CFormInput placeholder="Citta" autoComplete="Citta" onChange={changeTextCitta} />
-        </CInputGroup>
+          <CInputGroup className="mb-3">
+            <CInputGroupText>
+              <CIcon icon={cilUser} />
+            </CInputGroupText>
+            <CFormInput placeholder="Citta" autoComplete="Citta" onChange={changeTextCitta} />
+          </CInputGroup>
 
-        <CRow>
-          <CCol xs={6}>
-            <CButton color="primary" className="px-4" onClick={() => search()}>
-              Ricerca
-            </CButton>
-          </CCol>
-        </CRow>
+          <CRow>
+            <CCol xs={6}>
+              <CButton color="primary" className="px-4" onClick={() => search()}>
+                Ricerca
+              </CButton>
+            </CCol>
+          </CRow>
+        </div>
       </CForm>
       <ToastContainer />
     </div>
