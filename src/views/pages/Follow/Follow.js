@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css'
 import sfondo from 'src/assets/sfondo.png'
-
+import './App.css'
 const Follow = () => {
   const navigate = useNavigate()
 
@@ -63,8 +63,10 @@ const Follow = () => {
       }}
     >
       <CForm style={{ width: 400, marginLeft: 400, height: 1000 }}>
-        <div style={{ width: 400, height: 400, backgroundColor: 'white' }}>
-          <h1>Segui un defunto</h1>
+        <div style={{ width: 400, height: 400, backgroundColor: 'white', alignContent: 'center' }}>
+          <div className="App">
+            <h1 className="custom-heading">Segui un defunto</h1>
+          </div>
           <p className="text-medium-emphasis">Seleziona il comune di Residenza</p>
           <p></p>
           <CInputGroup className="mb-3">
@@ -94,9 +96,9 @@ const Follow = () => {
 
           <CRow>
             <CCol xs={6}>
-              <CButton color="primary" className="px-4" onClick={() => search()}>
+              <button className="custom-button" onClick={() => search()}>
                 Ricerca
-              </CButton>
+              </button>
             </CCol>
           </CRow>
         </div>

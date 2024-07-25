@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300&display=swap');
+
+.custom-heading {
+  font-family: 'Red Hat Text', sans-serif;
+  font-weight: 300; /* Light */
+  font-size: 30px;
+  text-align: left;
+}
+
+.custom-button {
+  position: absolute;
+
+  left: 411px;
+  width: 230px;
+  height: 51px;
+  background: #2B87BA 0% 0% no-repeat padding-box;
+  border-radius: 25px;
+  opacity: 1;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
