@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import sfondo from 'src/assets/sfondo.png'
-import { CButton, CCol, CFormInput, CInputGroup, CInputGroupText, CRow } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
 import { loginUser } from '../../../services/user'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import { CForm } from '@coreui/react'
+import sfondo from 'src/assets/sfondo.png'
+import './App.css'
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window
   return {
@@ -34,16 +32,15 @@ function useWindowDimensions() {
 const Login = () => {
   const navigate = useNavigate()
   let user, password
-  const { height } = useWindowDimensions()
   const notify = (message) => toast(message)
 
   const loginfunction = async () => {
     var islogin = await loginUser(user, password)
-    if (islogin == true) {
+    if (islogin === true) {
       var type = await localStorage.getItem('type')
-      if (type == 'UTENTE') {
+      if (type === 'UTENTE') {
         navigate('/messaggi')
-      } else if (type == 'ADMIN1') {
+      } else if (type === 'ADMIN1') {
         navigate('/defunto')
       } else {
         navigate('/dashboard')
@@ -53,10 +50,6 @@ const Login = () => {
     }
   }
 
-  const followFunction = async () => {
-    navigate('/follow')
-  }
-
   const changeTextUsername = (val) => {
     user = val.target.value
   }
@@ -64,52 +57,75 @@ const Login = () => {
   const changeTextPassword = (val) => {
     password = val.target.value
   }
+
+  const followFunction = async () => {
+    navigate('/follow')
+  }
+
   return (
     <div
       style={{
         backgroundImage: `url(${sfondo})`,
-        height: '100%',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: '100vh',
+        width: '100vw',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <div style={{ height: height, width: 400, marginLeft: 400 }}>
-        <h1>Login</h1>
-        <p className="text-medium-emphasis">Sign In to your account</p>
-
-        <CInputGroup className="mb-3">
-          <CInputGroupText>
-            <CIcon icon={cilUser} />
-          </CInputGroupText>
-          <CFormInput
+      <CForm
+        style={{
+          width: '300px',
+          height: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginTop: '100px',
+        }}
+      >
+        <div
+          style={{
+            width: '100%',
+            backgroundColor: 'white',
+            borderRadius: '30px',
+            padding: '20px',
+            boxSizing: 'border-box',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <h1 className="custom-heading">Segui un defunto</h1>
+          <p className="text-medium-emphasis" style={{ marginBottom: '20px' }}>
+            Esegui il login
+          </p>
+          <input
+            className="custom-textbox"
+            type="text"
             placeholder="Username"
-            autoComplete="username"
             onChange={changeTextUsername}
+            style={{ marginBottom: '20px', width: '100%' }}
           />
-        </CInputGroup>
-        <CInputGroup className="mb-4">
-          <CInputGroupText>
-            <CIcon icon={cilLockLocked} />
-          </CInputGroupText>
-          <CFormInput
+          <input
+            className="custom-textbox"
             type="password"
             placeholder="Password"
-            autoComplete="current-password"
             onChange={changeTextPassword}
+            style={{ marginBottom: '20px', width: '100%' }}
           />
-        </CInputGroup>
-        <CRow>
-          <CCol xs={6}>
-            <CButton color="primary" className="px-4" onClick={() => loginfunction()}>
-              Login
-            </CButton>
-            <p></p>
-            <CButton color="primary" className="px-6" onClick={() => followFunction()}>
-              Segui un defunto
-            </CButton>
-          </CCol>
-        </CRow>
-
-        <ToastContainer />
-      </div>
+          <button className="custom-button" onClick={loginfunction} style={{ width: '100%' }}>
+            Login
+          </button>
+          <p></p>
+          <button className="custom-button" onClick={followFunction} style={{ width: '100%' }}>
+            Segui un defunto
+          </button>
+        </div>
+      </CForm>
+      <ToastContainer />
     </div>
   )
 }
