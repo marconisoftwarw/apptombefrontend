@@ -3,7 +3,6 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {
   CButton,
-  CContainer,
   CTable,
   CTableBody,
   CTableDataCell,
@@ -13,11 +12,9 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import 'react-toastify/dist/ReactToastify.css'
-import sfondo from 'src/assets/sfondo.png'
 import { toast, ToastContainer } from 'react-toastify'
 import { cilUser } from '@coreui/icons'
 import { follow } from 'src/services/defunto'
-import { Container } from '@mui/material'
 import './App.css'
 const FollowTables = () => {
   const notify = (message) => toast(message)

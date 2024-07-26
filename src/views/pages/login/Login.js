@@ -106,11 +106,6 @@ const Login = () => {
               Segui un defunto
             </CButton>
           </CCol>
-          <CCol xs={6} className="text-right">
-            <CButton color="link" className="px-0">
-              Hai dimeticato la password?
-            </CButton>
-          </CCol>
         </CRow>
 
         <ToastContainer />
