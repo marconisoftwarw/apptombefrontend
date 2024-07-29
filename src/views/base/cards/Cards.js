@@ -17,7 +17,7 @@ import {
   CTableRow,
 } from '@coreui/react'
 import { useNavigate } from 'react-router-dom'
-import ReactImg from 'src/assets/images/react.jpeg'
+
 import { getList as getListCimitero } from '../../../services/cimitero'
 import { getList as getListDefunti } from '../../../services/defunto'
 import { getList as getTotemList } from '../../../services/totem'

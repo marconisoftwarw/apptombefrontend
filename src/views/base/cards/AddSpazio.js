@@ -11,12 +11,13 @@ import {
   CInputGroup,
   CRow,
 } from '@coreui/react'
+import immg1 from '../../../assets/layout/01.png'
 import FileBase64 from 'react-file-base64'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { generateTemplate } from '../../../services/template'
 import Dropdown from 'react-bootstrap/Dropdown'
-import './AddSpazio.css' // Import custom CSS
+import './AddSpazio.css'
 
 function DropdownSample(props) {
   return (
@@ -36,6 +37,7 @@ function DropdownSample(props) {
 const AddSpazio = () => {
   const navigate = useNavigate()
   const [error, setError] = useState(false)
+  const [immagineSelect, SetImmagine] = useState(1)
   let image, image2, image3
   const notify = (message) => toast(message)
   let valueTemplate = 1
@@ -87,13 +89,13 @@ const AddSpazio = () => {
     } else {
       image3 = val[0].base64
     }
+    SetImmagine(number)
   }
 
   const getWidgeInput = (placeholder, autoComplete, onChangeFunction, value) => {
     return (
       <div style={{ width: '350px', marginLeft: '50px' }}>
         {' '}
-        {/* Set width to 150px */}
         <CInputGroup className="mb-3">
           <CFormInput
             defaultValue={value}
@@ -127,6 +129,9 @@ const AddSpazio = () => {
             <p></p>
             <div style={{ marginLeft: '50px' }}>
               <DropdownSample setValue={setValue} />
+            </div>
+            <div style={{ marginLeft: '50px', marginTop: '20px' }}>
+              {immagineSelect == 1 ? <img src={immg1} width={300} /> : ''}
             </div>
             <p></p>
             {getWidgeInput('Testo', 'Testo', changetesto)}
