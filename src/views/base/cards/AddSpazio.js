@@ -91,8 +91,10 @@ const AddSpazio = () => {
 
   const getWidgeInput = (placeholder, autoComplete, onChangeFunction, value) => {
     return (
-      <div width={100}>
-        <CInputGroup className="mb-3" style={{ width: '100' }}>
+      <div style={{ width: '350px', marginLeft: '50px' }}>
+        {' '}
+        {/* Set width to 150px */}
+        <CInputGroup className="mb-3">
           <CFormInput
             defaultValue={value}
             placeholder={placeholder}
@@ -123,18 +125,21 @@ const AddSpazio = () => {
             </CCardHeader>
             <p></p>
             <p></p>
-            <DropdownSample setValue={setValue} />
+            <div style={{ marginLeft: '50px' }}>
+              <DropdownSample setValue={setValue} />
+            </div>
             <p></p>
             {getWidgeInput('Testo', 'Testo', changetesto)}
             {getWidgeInput('Messaggio', 'messaggio', changetesto)}
-            <strong>Immagine 1: </strong>
-            <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 1)} />
+            <div style={{ marginLeft: '50px' }}>
+              <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 1)} />
+            </div>
             {/* <strong>Immagine 2: </strong>
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 2)} />
           <strong>Immagine 3: </strong>
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 3)} />*/}
             <CCardBody>
-              <CButton color={'success'} onClick={inserisci} style={{ marginLeft: '30px' }}>
+              <CButton color={'success'} onClick={inserisci} style={{ marginLeft: '35px' }}>
                 Inserisci
               </CButton>
             </CCardBody>
