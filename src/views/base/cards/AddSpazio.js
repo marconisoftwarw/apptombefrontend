@@ -109,38 +109,39 @@ const AddSpazio = () => {
   }
 
   return (
-    <CRow>
-      <CCol xs={12}>
-        <CCard className="custom-card mb-6">
-          {' '}
-          {/* Apply custom styles */}
-          <CCardHeader>
-            {error ? (
-              <p style={{ color: 'red' }}>Errore: compilati tutti i campi</p>
-            ) : (
-              <strong>Per inserire un nuovo layout compila i campi qui sotto:</strong>
-            )}
-          </CCardHeader>
-          <p></p>
-          <p></p>
-          <DropdownSample setValue={setValue} />
-          <p></p>
-          {getWidgeInput('Testo', 'Testo', changetesto)}
-          {getWidgeInput('Messaggio', 'messaggio', changetesto)}
-          <strong>Immagine 1: </strong>
-          <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 1)} />
-          {/* <strong>Immagine 2: </strong>
+    <div style={{ marginTop: '30px', marginLeft: '10%' }}>
+      <CRow>
+        <CCol xs={12}>
+          <CCard className="custom-card mb-6">
+            {' '}
+            <CCardHeader>
+              {error ? (
+                <p style={{ color: 'red' }}>Errore: compilati tutti i campi</p>
+              ) : (
+                <strong>Per inserire un nuovo layout compila i campi qui sotto:</strong>
+              )}
+            </CCardHeader>
+            <p></p>
+            <p></p>
+            <DropdownSample setValue={setValue} />
+            <p></p>
+            {getWidgeInput('Testo', 'Testo', changetesto)}
+            {getWidgeInput('Messaggio', 'messaggio', changetesto)}
+            <strong>Immagine 1: </strong>
+            <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 1)} />
+            {/* <strong>Immagine 2: </strong>
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 2)} />
           <strong>Immagine 3: </strong>
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 3)} />*/}
-          <CCardBody>
-            <CButton color={'success'} onClick={inserisci}>
-              Inserisci
-            </CButton>
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
+            <CCardBody>
+              <CButton color={'success'} onClick={inserisci} style={{ marginLeft: '30px' }}>
+                Inserisci
+              </CButton>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+    </div>
   )
 }
 
