@@ -16,6 +16,7 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { generateTemplate } from '../../../services/template'
 import Dropdown from 'react-bootstrap/Dropdown'
+import './AddSpazio.css' // Import custom CSS
 
 function DropdownSample(props) {
   return (
@@ -34,25 +35,25 @@ function DropdownSample(props) {
 
 const AddSpazio = () => {
   const navigate = useNavigate()
-  const { error, setError } = useState(false)
+  const [error, setError] = useState(false)
   let image, image2, image3
   const notify = (message) => toast(message)
   let valueTemplate = 1
   let nome = '',
     testo = ''
 
-  useEffect(async () => {
+  useEffect(() => {
     async function fetchData() {
       nome = await localStorage.getItem('NomeDefuntoLoad')
     }
     fetchData()
-  })
+  }, [])
 
   const inserisci = async () => {
-    var idDefunto = await localStorage.getItem('idDefunto')
-    var idCimitero = await localStorage.getItem('idCimitero')
-    var idTotem = await localStorage.getItem('idTotem')
-    if (nome != '' && testo != '') {
+    const idDefunto = await localStorage.getItem('idDefunto')
+    const idCimitero = await localStorage.getItem('idCimitero')
+    const idTotem = await localStorage.getItem('idTotem')
+    if (nome !== '' && testo !== '') {
       await generateTemplate(
         nome,
         testo,
@@ -73,14 +74,15 @@ const AddSpazio = () => {
       setError(true)
     }
   }
+
   const changetesto = (val) => {
     testo = val.target.value
   }
 
   const loadImage = (val, number) => {
-    if (number == 1) {
+    if (number === 1) {
       image = val[0].base64
-    } else if (number == 2) {
+    } else if (number === 2) {
       image2 = val[0].base64
     } else {
       image3 = val[0].base64
@@ -89,8 +91,8 @@ const AddSpazio = () => {
 
   const getWidgeInput = (placeholder, autoComplete, onChangeFunction, value) => {
     return (
-      <p width={100}>
-        <CInputGroup className="mb-3">
+      <div width={100}>
+        <CInputGroup className="mb-3" style={{ width: '100' }}>
           <CFormInput
             defaultValue={value}
             placeholder={placeholder}
@@ -98,36 +100,41 @@ const AddSpazio = () => {
             onChange={onChangeFunction}
           />
         </CInputGroup>
-      </p>
+      </div>
     )
   }
 
   const setValue = (value) => {
     valueTemplate = value
   }
+
   return (
     <CRow>
-      <CCol xs={6}>
-        <CCard className="mb-6">
+      <CCol xs={12}>
+        <CCard className="custom-card mb-6">
+          {' '}
+          {/* Apply custom styles */}
           <CCardHeader>
-            {error === true ? (
+            {error ? (
               <p style={{ color: 'red' }}>Errore: compilati tutti i campi</p>
             ) : (
               <strong>Per inserire un nuovo layout compila i campi qui sotto:</strong>
             )}
           </CCardHeader>
           <p></p>
+          <p></p>
           <DropdownSample setValue={setValue} />
           <p></p>
+          {getWidgeInput('Testo', 'Testo', changetesto)}
           {getWidgeInput('Messaggio', 'messaggio', changetesto)}
           <strong>Immagine 1: </strong>
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 1)} />
-          <strong>Immagine 2: </strong>
+          {/* <strong>Immagine 2: </strong>
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 2)} />
           <strong>Immagine 3: </strong>
-          <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 3)} />
+          <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 3)} />*/}
           <CCardBody>
-            <CButton color={'success'} onClick={() => inserisci()}>
+            <CButton color={'success'} onClick={inserisci}>
               Inserisci
             </CButton>
           </CCardBody>
