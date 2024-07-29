@@ -26,8 +26,8 @@ function DropdownSample(props) {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => props.setValue(1)}>TEMPLATE 1 </Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>
+        {/*  <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>*/}
       </Dropdown.Menu>
     </Dropdown>
   )
