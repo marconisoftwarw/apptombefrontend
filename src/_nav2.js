@@ -22,7 +22,7 @@ const _nav2 = [
   },
   {
     component: CNavItem,
-    name: 'Messaggi',
+    name: 'Messaggi Utenti',
     to: '/messaggi/',
     icon: <CIcon icon={cibAboutMe} customClassName="nav-icon" />,
   },

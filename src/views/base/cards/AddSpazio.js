@@ -145,7 +145,7 @@ const AddSpazio = () => {
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 3)} />*/}
             <CCardBody>
               <CButton color={'success'} onClick={inserisci} style={{ marginLeft: '35px' }}>
-                Inserisci
+                Genera layout
               </CButton>
             </CCardBody>
           </CCard>
