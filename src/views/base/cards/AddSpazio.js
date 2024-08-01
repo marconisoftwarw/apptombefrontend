@@ -27,8 +27,8 @@ function DropdownSample(props) {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => props.setValue(1)}>TEMPLATE 1 </Dropdown.Item>
-        {/*  <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>*/}
+        {/* <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
+      <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>*/}
       </Dropdown.Menu>
     </Dropdown>
   )
@@ -139,7 +139,7 @@ const AddSpazio = () => {
             <div style={{ marginLeft: '50px' }}>
               <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 1)} />
             </div>
-            {/* <strong>Immagine 2: </strong>
+            {/*strong>Immagine 2: </strong>
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 2)} />
           <strong>Immagine 3: </strong>
           <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 3)} />*/}
