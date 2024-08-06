@@ -55,10 +55,14 @@ const AddSpazio = () => {
     const idDefunto = await localStorage.getItem('idDefunto')
     const idCimitero = await localStorage.getItem('idCimitero')
     const idTotem = await localStorage.getItem('idTotem')
-    if (nome !== '' && testo !== '') {
+
+    console.log(
+      idTotem + ' ' + idCimitero + ' ' + idDefunto + ' nome: ' + nome + ' testo: ' + testo,
+    )
+    if (nome !== '') {
       await generateTemplate(
         nome,
-        testo,
+        nome,
         'TEMPLATE' + valueTemplate,
         image,
         image2,
@@ -79,6 +83,7 @@ const AddSpazio = () => {
 
   const changetesto = (val) => {
     testo = val.target.value
+    nome = val.target.value
   }
 
   const loadImage = (val, number) => {
