@@ -125,8 +125,12 @@ const TablesCustom = () => {
                 <strong>{item.cimitero}</strong>
               </CTableDataCell>
               <CTableDataCell>
-                <Dropdown>
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown style={{ height: 80 }}>
+                  <Dropdown.Toggle
+                    variant="success"
+                    id="dropdown-basic"
+                    style={{ marginTop: '10px' }}
+                  >
                     Seleziona Urna
                   </Dropdown.Toggle>
                   <Dropdown.Menu>

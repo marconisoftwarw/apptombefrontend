@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -12,6 +11,7 @@ import {
   CRow,
 } from '@coreui/react'
 import immg1 from '../../../assets/layout/01.png'
+import immg2 from '../../../assets/layout/07.png'
 import FileBase64 from 'react-file-base64'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -27,8 +27,8 @@ function DropdownSample(props) {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => props.setValue(1)}>TEMPLATE 1 </Dropdown.Item>
-        {/* <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
-      <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>*/}
+        <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
+        {/*  <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>*/}
       </Dropdown.Menu>
     </Dropdown>
   )
@@ -37,10 +37,10 @@ function DropdownSample(props) {
 const AddSpazio = () => {
   const navigate = useNavigate()
   const [error, setError] = useState(false)
+  const [valueTemplate, setValueTemplate] = useState(1)
   const [immagineSelect, SetImmagine] = useState(1)
   let image, image2, image3
   const notify = (message) => toast(message)
-  let valueTemplate = 1
   let nome = '',
     testo = ''
 
@@ -108,10 +108,6 @@ const AddSpazio = () => {
     )
   }
 
-  const setValue = (value) => {
-    valueTemplate = value
-  }
-
   return (
     <div style={{ marginTop: '30px', marginLeft: '10%' }}>
       <CRow>
@@ -128,10 +124,11 @@ const AddSpazio = () => {
             <p></p>
             <p></p>
             <div style={{ marginLeft: '50px' }}>
-              <DropdownSample setValue={setValue} />
+              <DropdownSample setValue={setValueTemplate} />
             </div>
             <div style={{ marginLeft: '50px', marginTop: '20px' }}>
-              {immagineSelect == 1 ? <img src={immg1} width={300} /> : ''}
+              {valueTemplate === 1 ? <img src={immg1} width={300} /> : ''}
+              {valueTemplate === 2 ? <img src={immg2} width={300} /> : ''}
             </div>
             <p></p>
             {getWidgeInput('Testo', 'Testo', changetesto)}
