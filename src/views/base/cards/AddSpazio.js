@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import {
   CButton,
   CCard,
@@ -32,6 +33,10 @@ function DropdownSample(props) {
       </Dropdown.Menu>
     </Dropdown>
   )
+}
+
+DropdownSample.propTypes = {
+  setValue: PropTypes.func.isRequired,
 }
 
 const AddSpazio = () => {
