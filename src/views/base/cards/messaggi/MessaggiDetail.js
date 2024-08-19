@@ -91,12 +91,6 @@ const TablesCustom = () => {
 
   return (
     <>
-      {alertVisible && (
-        <CAlert color={alertMessage.includes('Errore') ? 'danger' : 'success'} dismissible>
-          {alertMessage}
-        </CAlert>
-      )}
-
       <CCard>
         <CCardHeader>
           <strong>Lista Messaggi</strong>
