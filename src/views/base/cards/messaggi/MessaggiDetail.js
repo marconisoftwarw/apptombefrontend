@@ -35,7 +35,7 @@ const TablesCustom = () => {
       try {
         const email = await localStorage.getItem('emailuser')
         const listaMessaggi = await getList(email)
-        const objectList = listaMessaggi.map(msg => ({
+        const objectList = listaMessaggi.map((msg) => ({
           id: msg.id,
           testo: msg.testo,
           idUtenteSend: msg.idUtenteSend,
@@ -44,7 +44,7 @@ const TablesCustom = () => {
         }))
         setList(objectList)
       } catch (e) {
-        console.error("Errore durante il recupero dei dati", e)
+        console.error('Errore durante il recupero dei dati', e)
       }
     }
     fetchData()
@@ -66,7 +66,7 @@ const TablesCustom = () => {
       setAlertMessage('Errore durante l\'invio del messaggio.')
       setAlertVisible(true)
       setTimeout(() => setAlertVisible(false), 3000)
-      console.error("Errore durante l'invio del messaggio", e)
+      console.error('Errore durante l\'invio del messaggio', e)
     }
   }
 
@@ -85,13 +85,18 @@ const TablesCustom = () => {
       setAlertMessage('Errore durante il caricamento dell\'immagine.')
       setAlertVisible(true)
       setTimeout(() => setAlertVisible(false), 3000)
-      console.error("Errore durante il caricamento dell'immagine", e)
+      console.error('Errore durante il caricamento dell\'immagine', e)
     }
   }
 
   return (
     <>
-      <CCard>
+      {alertVisible && (
+        <CAlert color={alertMessage.includes('Errore') ? 'danger' : 'success'} dismissible>
+          {alertMessage}
+        </CAlert>
+      )}
+      <CCard className="mb-4">
         <CCardHeader>
           <strong>Lista Messaggi</strong>
         </CCardHeader>
@@ -128,7 +133,6 @@ const TablesCustom = () => {
           </CTable>
         </CCardBody>
       </CCard>
-      <p></p>
       <CCard className="mb-4">
         <CCardHeader>
           <strong>Invia un Messaggio</strong>
