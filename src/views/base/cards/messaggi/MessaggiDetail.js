@@ -145,7 +145,7 @@ const TablesCustom = () => {
             </CButton>
           </CInputGroup>
           <CInputGroup className="mb-4 align-items-center">
-            Per inviare un'immagine, carica qui sotto:
+            Carica un immagine qui
             <FileBase64
               multiple={true}
               onDone={(base64) => loadImage(base64)}
