@@ -63,10 +63,10 @@ const TablesCustom = () => {
       setTimeout(() => setAlertVisible(false), 3000)
       setTestoMessaggio('')
     } catch (e) {
-      setAlertMessage('Errore durante l\'invio del messaggio.')
+      setAlertMessage("Errore durante l'invio del messaggio.")
       setAlertVisible(true)
       setTimeout(() => setAlertVisible(false), 3000)
-      //console.error('Errore durante l\'invio del messaggio', e)
+      //console.error("Errore durante l'invio del messaggio", e)
     }
   }
 
@@ -82,10 +82,10 @@ const TablesCustom = () => {
       setAlertVisible(true)
       setTimeout(() => setAlertVisible(false), 3000)
     } catch (e) {
-      setAlertMessage('Errore durante il caricamento dell\'immagine.')
+      setAlertMessage("Errore durante il caricamento dell'immagine.")
       setAlertVisible(true)
       setTimeout(() => setAlertVisible(false), 3000)
-      //console.error('Errore durante il caricamento dell\'immagine', e)
+      //console.error("Errore durante il caricamento dell'immagine", e)
     }
   }
 
