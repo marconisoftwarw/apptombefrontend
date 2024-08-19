@@ -44,7 +44,7 @@ const TablesCustom = () => {
         }))
         setList(objectList)
       } catch (e) {
-        console.error('Errore durante il recupero dei dati', e)
+        ////console.error('Errore durante il recupero dei dati', e)
       }
     }
     fetchData()
@@ -66,7 +66,7 @@ const TablesCustom = () => {
       setAlertMessage('Errore durante l\'invio del messaggio.')
       setAlertVisible(true)
       setTimeout(() => setAlertVisible(false), 3000)
-      console.error('Errore durante l\'invio del messaggio', e)
+      //console.error('Errore durante l\'invio del messaggio', e)
     }
   }
 
@@ -85,7 +85,7 @@ const TablesCustom = () => {
       setAlertMessage('Errore durante il caricamento dell\'immagine.')
       setAlertVisible(true)
       setTimeout(() => setAlertVisible(false), 3000)
-      console.error('Errore durante il caricamento dell\'immagine', e)
+      //console.error('Errore durante il caricamento dell\'immagine', e)
     }
   }
 
