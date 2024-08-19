@@ -112,14 +112,8 @@ const TablesCustom = () => {
             <CTableBody>
               {list.map((item, index) => (
                 <CTableRow key={item.id}>
-                  <CTableDataCell className="text-center">
-                    {/* eslint-disable-next-line prettier/prettier */}
-                    {index + 1}
-                  </CTableDataCell>
-                  <CTableDataCell>
-                    {/* eslint-disable-next-line prettier/prettier */}
-                    {item.UserSend}
-                  </CTableDataCell>
+                  <CTableDataCell className="text-center">{index + 1}</CTableDataCell>
+                  <CTableDataCell>{item.UserSend}</CTableDataCell>
                   <CTableDataCell className="text-center">
                     {!item.testo.includes('/') ? (
                       item.testo
@@ -151,7 +145,7 @@ const TablesCustom = () => {
             </CButton>
           </CInputGroup>
           <CInputGroup className="mb-4 align-items-center">
-           Per inviare un'immagine, carica qui sotto:
+            Per inviare un'immagine, carica qui sotto:
             <FileBase64
               multiple={true}
               onDone={(base64) => loadImage(base64)}
