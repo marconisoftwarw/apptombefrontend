@@ -113,9 +113,11 @@ const TablesCustom = () => {
               {list.map((item, index) => (
                 <CTableRow key={item.id}>
                   <CTableDataCell className="text-center">
+                    {/* eslint-disable-next-line prettier/prettier */}
                     {index + 1}
                   </CTableDataCell>
                   <CTableDataCell>
+                    {/* eslint-disable-next-line prettier/prettier */}
                     {item.UserSend}
                   </CTableDataCell>
                   <CTableDataCell className="text-center">
