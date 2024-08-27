@@ -29,7 +29,10 @@ function DropdownSample(props) {
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => props.setValue(1)}>TEMPLATE 1 </Dropdown.Item>
         <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
-        {/*  <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>*/}
+        <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(4)}>TEMPLATE 4</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(5)}>TEMPLATE 5</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(6)}>TEMPLATE 6</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   )
@@ -139,6 +142,10 @@ const AddSpazio = () => {
             <div style={{ marginLeft: '50px', marginTop: '20px' }}>
               {valueTemplate === 1 ? <img src={immg1} width={300} /> : ''}
               {valueTemplate === 2 ? <img src={immg2} width={300} /> : ''}
+              {valueTemplate === 3 ? <img src={immg2} width={300} /> : ''}
+              {valueTemplate === 4 ? <img src={immg2} width={300} /> : ''}
+              {valueTemplate === 5 ? <img src={immg2} width={300} /> : ''}
+              {valueTemplate === 6 ? <img src={immg2} width={300} /> : ''}
             </div>
             <p></p>
             {getWidgeInput('Testo', 'Testo', changetesto)}
@@ -146,10 +153,6 @@ const AddSpazio = () => {
             <div style={{ marginLeft: '50px' }}>
               <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 1)} />
             </div>
-            {/*strong>Immagine 2: </strong>
-          <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 2)} />
-          <strong>Immagine 3: </strong>
-          <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 3)} />*/}
             <CCardBody>
               <CButton color={'success'} onClick={inserisci} style={{ marginLeft: '35px' }}>
                 Genera layout
