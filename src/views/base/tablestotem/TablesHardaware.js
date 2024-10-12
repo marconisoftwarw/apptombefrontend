@@ -12,7 +12,7 @@ import {
   CTableRow,
 } from '@coreui/react'
 import { deleteCimitero, getList } from '../../../services/hardwaretotem'
-import { getList as getListCimitero } from '../../../services/cimitero'
+import { getList as getListCimitero, getCimiteroNomeById } from '../../../services/cimitero'
 import avatardelete from 'src/assets/delete.png'
 import avatarstampa from 'src/assets/totem.png'
 const TablesTotemHardware = () => {
@@ -30,6 +30,7 @@ const TablesTotemHardware = () => {
           id: item.id,
           idCimitero: item.idCimitero,
           Nome: item.Nome,
+          citta: item.citta,
         }),
       )
       cimiteri.map(async (item) =>
@@ -73,6 +74,12 @@ const TablesTotemHardware = () => {
               className="text-center"
               style={{ backgroundColor: 'rgb(176, 219, 240)' }}
             >
+              Città
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
               Id Cimitero
             </CTableHeaderCell>
             <CTableHeaderCell
@@ -91,6 +98,9 @@ const TablesTotemHardware = () => {
               </CTableDataCell>
               <CTableDataCell className="text-center">
                 <div>{item.id}</div>
+              </CTableDataCell>
+              <CTableDataCell className="text-center">
+                <div>{item.citta}</div>
               </CTableDataCell>
               <CTableDataCell className="text-center">
                 <div>{item.idCimitero}</div>

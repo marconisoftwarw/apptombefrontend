@@ -10,20 +10,19 @@ export async function addcimitero(nome, nazione, citta, regione) {
       citta: citta,
       regione: regione,
     })
-    .then(function (response) {
+    .then(function () {
       return true
     })
-    .catch(function (error) {
+    .catch(function () {
       //console.error('Errore: ' + error.toString())
     })
   return result
 }
 
 export async function getCimiteroNomeById(id) {
-  const lista = await getList() // Recupera la lista dei cimiteri
-  const cimitero = lista.find((item) => item.id === id) // Filtra il cimitero in base all'id
-
-  return cimitero ? cimitero.citta : null // Restituisci il nome o null se non trovato
+  const lista = await getList()
+  const cimitero = lista.find((item) => item.id === id)
+  return cimitero ? cimitero.citta : null
 }
 
 export async function getList() {
@@ -43,7 +42,7 @@ export async function getList() {
         lista.push(datatemp)
       }
     })
-    .catch(function (error) {
+    .catch(function () {
       //console.error('Errore: caricamento cimiteri registrati: ' + error)
     })
   return lista
@@ -52,15 +51,10 @@ export async function getList() {
 export async function deleteCimitero(id) {
   var ret = true
   const token = localStorage.getItem('token')
-  const config = {
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', token: token },
-  }
   await axios
     .post(url + '/cimitero/delete', { id: id })
-    .then(function (response) {
-      var data = response.data
-    })
-    .catch(function (error) {
+    .then(function (response) {})
+    .catch(function () {
       ret = false
       //console.error('Errore: eliminazione utente: ' + error)
     })

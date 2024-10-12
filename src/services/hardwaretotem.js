@@ -1,6 +1,6 @@
 import * as axios from 'axios'
 import { url } from './settings'
-import { getList as getListCimiteri } from './cimitero'
+import { getList as getListCimiteri, getCimiteroNomeById } from './cimitero'
 
 export async function deleteCimitero(id) {
   var result = false
@@ -37,6 +37,7 @@ export async function getList() {
           id: data[index].id,
           idCimitero: data[index].idCimitero,
           Nome: await getNome(data[index].idCimitero),
+          citta: await getCimiteroNomeById(data[index].idCimitero),
         }
         lista.push(datatemp)
       }
