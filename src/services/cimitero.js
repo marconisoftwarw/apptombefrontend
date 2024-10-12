@@ -19,10 +19,15 @@ export async function addcimitero(nome, nazione, citta, regione) {
   return result
 }
 
+export async function getCimiteroNomeById(id) {
+  const lista = await getList() // Recupera la lista dei cimiteri
+  const cimitero = lista.find((item) => item.id === id) // Filtra il cimitero in base all'id
+
+  return cimitero ? cimitero.citta : null // Restituisci il nome o null se non trovato
+}
+
 export async function getList() {
   var lista = []
-  const token = localStorage.getItem('token')
-
   await axios
     .get(url + '/cimitero', {})
     .then(function (response) {

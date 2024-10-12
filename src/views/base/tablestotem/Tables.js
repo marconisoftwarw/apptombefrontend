@@ -16,15 +16,24 @@ import { deleteTotem, getList } from '../../../services/totem'
 import { url } from '../../../services/settings'
 import urnaAvatar from 'src/assets/urna.png'
 import avatarvisualizza from 'src/assets/visualizza.png'
-import avatarstampa from 'src/assets/stampa.png'
+import { getCimiteroNomeById } from '../../../services/cimitero'
+
 import avatardelete from 'src/assets/delete.png'
 const TablesTotem = (props) => {
   const [users, setUserList] = useState([])
+
   useEffect(() => {
     var list = []
+
     async function fetchData() {
       var cimiteri = await getList()
-      cimiteri.map(async (item) =>
+
+      // Iterate over cimiteri and ensure data is set properly
+      for (const item of cimiteri) {
+        var nomeCitta = await getCimiteroNomeById(item.idCimitero)
+        item.citta = nomeCitta
+        console.log('Citta: ', item.citta)
+
         list.push({
           id: item.id,
           nome: item.nome,
@@ -33,7 +42,7 @@ const TablesTotem = (props) => {
           provincia: item.regione,
           cap: item.cap,
           user: {
-            name: item.citta,
+            name: nomeCitta || 'Città non disponibile', // Ensure citta exists
             new: false,
             registered: '',
           },
@@ -46,8 +55,10 @@ const TablesTotem = (props) => {
           idCimitero: item.idCimitero,
           activity: item.comune,
           istemplatevalid: item.istemplatevalid,
-        }),
-      )
+        })
+      }
+
+      // Filtering list by IdCimitero if needed
       try {
         var listfilter = []
         var IdCimiterofilter = localStorage.getItem('IdCimitero')
@@ -59,11 +70,14 @@ const TablesTotem = (props) => {
           }
           list = listfilter
         }
-      } catch (e) {}
+      } catch (e) {
+        console.error('Error filtering by IdCimitero: ', e)
+      }
 
       setUserList(list)
       localStorage.setItem('IdCimitero', 0)
     }
+
     fetchData()
   }, [])
 
@@ -103,6 +117,12 @@ const TablesTotem = (props) => {
               className="text-center"
               style={{ backgroundColor: 'rgb(176, 219, 240)' }}
             >
+              Nome Cimitero
+            </CTableHeaderCell>
+            <CTableHeaderCell
+              className="text-center"
+              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
+            >
               IdCimitero
             </CTableHeaderCell>
             <CTableHeaderCell
@@ -129,6 +149,9 @@ const TablesTotem = (props) => {
               </CTableDataCell>
               <CTableDataCell className="text-center">
                 <div>{item.nome}</div>
+              </CTableDataCell>
+              <CTableDataCell className="text-center">
+                <div>{item.user.name}</div>
               </CTableDataCell>
               <CTableDataCell className="text-center">{item.idCimitero}</CTableDataCell>
               <CTableDataCell className="text-center">
