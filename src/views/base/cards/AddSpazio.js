@@ -206,7 +206,7 @@ const AddSpazio = () => {
               <CCardBody>
                 <CButton
                   color={'success'}
-                  onClick={inserisci}
+                  onClick={() => inserisci()}
                   style={{
                     marginLeft: '35px',
                     backgroundColor: '#2B87BA',
