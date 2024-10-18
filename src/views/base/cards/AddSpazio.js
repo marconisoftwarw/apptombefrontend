@@ -102,13 +102,13 @@ const AddSpazio = () => {
   }
 
   const handleImageUpload = (event) => {
-    const file = event.target.files[0] // Prendi il primo file selezionato
+    const file = event.target.files[0]
     if (file) {
       const reader = new FileReader()
       reader.onloadend = () => {
-        setUploadedImage(reader.result) // Imposta l'immagine in Base64 nello stato
+        setUploadedImage(reader.result)
       }
-      reader.readAsDataURL(file) // Leggi il file come URL dati
+      reader.readAsDataURL(file)
     }
   }
 
