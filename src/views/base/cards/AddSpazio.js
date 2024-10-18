@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
-  CFormInput,
-  CInputGroup,
-  CRow,
-} from '@coreui/react'
+import { CButton, CCard, CCardBody, CCol, CFormInput, CInputGroup, CRow } from '@coreui/react'
 import immg1 from '../../../assets/layout/01.png'
 import immg2 from '../../../assets/layout/07.png'
 import uploadimg from '../../../assets/upload.png'
