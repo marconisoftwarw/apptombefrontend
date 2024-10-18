@@ -1,8 +1,3 @@
-.custom-card {
-  border-radius: 20px; /* Rounded borders */
-  width: 80%; /* Increase width */
-  margintop: 10%;
-}
 .custom-dropdown {
   /* Layout Properties */
   position: absolute; /* Se desideri controllare le posizioni top e left */

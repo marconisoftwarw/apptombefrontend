@@ -13,7 +13,7 @@ import {
 } from '@coreui/react'
 import immg1 from '../../../assets/layout/01.png'
 import immg2 from '../../../assets/layout/07.png'
-import FileBase64 from 'react-file-base64'
+import uploadimg from '../../../assets/upload.png'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { generateTemplate } from '../../../services/template'
@@ -23,11 +23,19 @@ import './AddSpazio.css'
 function DropdownSample(props) {
   return (
     <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle
+        id="dropdown-basic"
+        style={{
+          background: 'white',
+          color: '#73C2ED',
+          border: '1px solid #4F4F4F',
+          marginTop: '20px',
+        }}
+      >
         Seleziona Template
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        <Dropdown.Item onClick={() => props.setValue(1)}>TEMPLATE 1 </Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(1)}>TEMPLATE 1</Dropdown.Item>
         <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
         <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>
         <Dropdown.Item onClick={() => props.setValue(4)}>TEMPLATE 4</Dropdown.Item>
@@ -46,8 +54,7 @@ const AddSpazio = () => {
   const navigate = useNavigate()
   const [error, setError] = useState(false)
   const [valueTemplate, setValueTemplate] = useState(1)
-  const [immagineSelect, SetImmagine] = useState(1)
-  let image, image2, image3
+  const [uploadedImage, setUploadedImage] = useState(null) // Stato per l'immagine caricata
   const notify = (message) => toast(message)
   let nome = '',
     testo = ''
@@ -72,9 +79,9 @@ const AddSpazio = () => {
         nome,
         nome,
         'TEMPLATE' + valueTemplate,
-        image,
-        image2,
-        image3,
+        uploadedImage || '', // Usare l'immagine caricata in formato Base64
+        '', // image2 placeholder
+        '', // image3 placeholder
         idDefunto,
         idCimitero,
         'TEMPLATE' + valueTemplate,
@@ -94,27 +101,38 @@ const AddSpazio = () => {
     nome = val.target.value
   }
 
-  const loadImage = (val, number) => {
-    if (number === 1) {
-      image = val[0].base64
-    } else if (number === 2) {
-      image2 = val[0].base64
-    } else {
-      image3 = val[0].base64
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0] // Prendi il primo file selezionato
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setUploadedImage(reader.result) // Imposta l'immagine in Base64 nello stato
+      }
+      reader.readAsDataURL(file) // Leggi il file come URL dati
     }
-    SetImmagine(number)
   }
 
   const getWidgeInput = (placeholder, autoComplete, onChangeFunction, value) => {
     return (
-      <div style={{ width: '350px', marginLeft: '50px' }}>
-        {' '}
+      <div
+        style={{
+          top: '662px',
+          left: '200px',
+          width: '350px',
+          height: '50px',
+          background: '#FFFFFF',
+          borderRadius: '25px',
+          marginLeft: '260%',
+          opacity: '1',
+        }}
+      >
         <CInputGroup className="mb-3">
           <CFormInput
             defaultValue={value}
             placeholder={placeholder}
             autoComplete={autoComplete}
             onChange={onChangeFunction}
+            style={{ borderRadius: '25px', height: '100%' }} // Applica il bordo arrotondato anche al campo di input
           />
         </CInputGroup>
       </div>
@@ -123,41 +141,83 @@ const AddSpazio = () => {
 
   return (
     <div style={{ marginTop: '30px', marginLeft: '10%' }}>
-      <CRow>
-        <CCol xs={12}>
-          <CCard className="custom-card mb-6">
-            {' '}
-            <CCardHeader>
-              {error ? (
-                <p style={{ color: 'red' }}>Errore: compilati tutti i campi</p>
-              ) : (
-                <strong>Per inserire un nuovo layout compila i campi qui sotto:</strong>
-              )}
-            </CCardHeader>
-            <p></p>
-            <p></p>
-            <div style={{ marginLeft: '50px' }}>
+      <CRow style={{ backgroundColor: 'white', padding: '20px' }}>
+        <CCol xs={12} className="d-flex align-items-center">
+          <CCard
+            className="custom-card mb-6 flex-fill"
+            style={{ backgroundColor: 'white', marginRight: '10px', height: '100%' }}
+          >
+            <div style={{ marginLeft: '50px', marginLeft: '100px' }}>
               <DropdownSample setValue={setValueTemplate} />
             </div>
-            <div style={{ marginLeft: '50px', marginTop: '20px' }}>
-              {valueTemplate === 1 ? <img src={immg1} width={300} /> : ''}
-              {valueTemplate === 2 ? <img src={immg2} width={300} /> : ''}
-              {valueTemplate === 3 ? <img src={immg2} width={300} /> : ''}
-              {valueTemplate === 4 ? <img src={immg2} width={300} /> : ''}
-              {valueTemplate === 5 ? <img src={immg2} width={300} /> : ''}
-              {valueTemplate === 6 ? <img src={immg2} width={300} /> : ''}
-            </div>
             <p></p>
-            {getWidgeInput('Testo', 'Testo', changetesto)}
-            {getWidgeInput('Messaggio', 'messaggio', changetesto)}
-            <div style={{ marginLeft: '50px' }}>
-              <FileBase64 multiple={true} onDone={(base64) => loadImage(base64, 1)} />
+
+            <CRow
+              className="g-0"
+              style={{
+                width: '100%',
+                justifyContent: 'space-between',
+                marginTop: '20px',
+                marginRight: '90px',
+              }}
+            >
+              <CCol xs={6} className="d-flex justify-content-center align-items-center">
+                {/* Colonna per l'immagine del template */}
+                <div>
+                  {valueTemplate === 1 ? <img src={immg1} width={300} alt="Template 1" /> : ''}
+                  {valueTemplate === 2 ? <img src={immg2} width={300} alt="Template 2" /> : ''}
+                  {valueTemplate === 3 ? <img src={immg2} width={300} alt="Template 3" /> : ''}
+                  {valueTemplate === 4 ? <img src={immg2} width={300} alt="Template 4" /> : ''}
+                  {valueTemplate === 5 ? <img src={immg2} width={300} alt="Template 5" /> : ''}
+                  {valueTemplate === 6 ? <img src={immg2} width={300} alt="Template 6" /> : ''}
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p>Nome: {localStorage.getItem('NomeDefuntoLoad').replace('<br></br>', '')}</p>
+                </div>
+              </CCol>
+
+              <CCol xs={6} className="d-flex justify-content-center align-items-center">
+                {/* Input per il caricamento dell'immagine */}
+                <label htmlFor="file-upload">
+                  <img
+                    src={uploadimg}
+                    width={370}
+                    height={160}
+                    alt="Upload"
+                    style={{ cursor: 'pointer' }} // Mostra il cursore a forma di mano
+                  />
+                  <input
+                    type="file"
+                    id="file-upload"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    style={{ display: 'none' }} // Nasconde il campo di input
+                  />
+                </label>
+              </CCol>
+            </CRow>
+
+            <div style={{ marginLeft: '50px', width: '200px' }}>
+              <p></p>
+              {getWidgeInput('Testo', 'Testo', changetesto)}
+              <p></p>
+              {getWidgeInput('Messaggio', 'messaggio', changetesto)}
+              <CCardBody>
+                <CButton
+                  color={'success'}
+                  onClick={inserisci}
+                  style={{
+                    marginLeft: '35px',
+                    backgroundColor: '#2B87BA',
+                    color: 'white',
+                    marginLeft: '800px',
+                  }}
+                >
+                  Conferma
+                </CButton>
+              </CCardBody>
             </div>
-            <CCardBody>
-              <CButton color={'success'} onClick={inserisci} style={{ marginLeft: '35px' }}>
-                Genera layout
-              </CButton>
-            </CCardBody>
           </CCard>
         </CCol>
       </CRow>
