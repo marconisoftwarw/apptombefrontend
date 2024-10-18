@@ -1,12 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from 'react'
 import {
-  CCard,
-  CCardBody,
   CCardHeader,
-  CCardImage,
-  CCardText,
-  CCardTitle,
   CCol,
   CRow,
   CTable,

@@ -10,7 +10,6 @@ import {
   CRow,
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
-
 import AngularImg from 'src/assets/images/angular.jpg'
 import ReactImg from 'src/assets/images/react.jpg'
 import VueImg from 'src/assets/images/vue.jpg'
