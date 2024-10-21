@@ -10,10 +10,9 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
-import { cifIt, cilPeople } from '@coreui/icons'
+import { cifIt } from '@coreui/icons'
 import avatar1 from 'src/assets/images/cimitero.png'
 import { deleteCimitero, getList } from '../../../services/cimitero'
 import { getList as gethardwaretotem } from '../../../services/hardwaretotem'
