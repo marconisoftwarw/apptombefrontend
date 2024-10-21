@@ -78,8 +78,6 @@ const Tables = () => {
   const deleteCimiteroTable = async (item) => {
     if ((await deleteCimitero(item.id)) == true) {
       window.location.reload(false)
-    } else {
-      //console.error('Errore eliminazione utente')
     }
   }
 
