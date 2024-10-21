@@ -92,11 +92,17 @@ const Tables = () => {
     const doc = new jsPDF(orientation, unit, size)
     doc.setFontSize(15)
     const title = 'Stampa lista urne'
-    const headers = [['IDCIMITERO', 'IDTOTEM', 'IDURNA']]
+    const headers = [['IDCIMITERO', 'IDTOTEM', 'IDURNA', 'DEFUNTO', 'CIMITERO']]
     var data = []
     for (var i = 0; i < listaTotem.length; i++) {
       if (item.id == listaTotem[i].idCimitero) {
-        const tempData = [listaTotem[i].idCimitero, listaTotem[i].idTotemHardware, listaTotem[i].id]
+        const tempData = [
+          listaTotem[i].idCimitero,
+          listaTotem[i].idTotemHardware,
+          listaTotem[i].id,
+          '',
+          item.user.name,
+        ]
         data.push(tempData)
       }
     }
