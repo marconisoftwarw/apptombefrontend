@@ -28,9 +28,15 @@ export async function add(
       return true
     })
     .catch(function (error) {
-      //console.error('Errore: ' + error.toString())
+      console.error('Errore: ' + error.toString())
     })
   return result
+}
+
+export async function getFilteredListByIdUrna(idUrna) {
+  const listaCompleta = await getList()
+  const listaFiltrata = listaCompleta.filter((item) => item.idUrna === idUrna)
+  return listaFiltrata
 }
 
 export async function getList() {
@@ -68,7 +74,7 @@ export async function getList() {
       }
     })
     .catch(function (error) {
-      //console.error('Errore: caricamento cimiteri registrati: ' + error)
+      console.error('Errore: caricamento cimiteri registrati: ' + error)
     })
   return lista
 }

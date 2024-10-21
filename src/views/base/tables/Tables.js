@@ -17,6 +17,7 @@ import avatar1 from 'src/assets/images/cimitero.png'
 import { deleteCimitero, getList } from '../../../services/cimitero'
 import { getList as gethardwaretotem } from '../../../services/hardwaretotem'
 import { getList as getListaTotem } from '../../../services/totem'
+import { getFilteredListByIdUrna } from '../../../services/defunto'
 import avatar2 from 'src/assets/aggiungi.png'
 import avatarvisualizza from 'src/assets/visualizza.png'
 import avatarstampa from 'src/assets/stampa.png'
@@ -89,7 +90,7 @@ const Tables = () => {
     const doc = new jsPDF(orientation, unit, size)
     doc.setFontSize(15)
     const title = 'Stampa lista urne'
-    const headers = [['IDCIMITERO', 'IDTOTEM', 'IDURNA', 'DEFUNTO', 'CIMITERO']]
+    const headers = [['IDCIMITERO', 'IDTOTEM', 'IDURNA', 'CIMITERO']]
     var data = []
     for (var i = 0; i < listaTotem.length; i++) {
       if (item.id == listaTotem[i].idCimitero) {
@@ -97,7 +98,6 @@ const Tables = () => {
           listaTotem[i].idCimitero,
           listaTotem[i].idTotemHardware,
           listaTotem[i].id,
-          '',
           item.user.name,
         ]
         data.push(tempData)
