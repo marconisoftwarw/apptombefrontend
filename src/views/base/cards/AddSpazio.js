@@ -45,7 +45,7 @@ const AddSpazio = () => {
   const navigate = useNavigate()
   const [error, setError] = useState(false)
   const [valueTemplate, setValueTemplate] = useState(1)
-  const [uploadedImage, setUploadedImage] = useState(null) // Stato per l'immagine caricata
+  const [uploadedImage, setUploadedImage] = useState(null)
   const notify = (message) => toast(message)
   let nome = '',
     testo = ''
@@ -153,7 +153,6 @@ const AddSpazio = () => {
               }}
             >
               <CCol xs={6} className="d-flex justify-content-center align-items-center">
-                {/* Colonna per l'immagine del template */}
                 <div>
                   {valueTemplate === 1 ? <img src={immg1} width={300} alt="Template 1" /> : ''}
                   {valueTemplate === 2 ? <img src={immg2} width={300} alt="Template 2" /> : ''}
@@ -169,14 +168,13 @@ const AddSpazio = () => {
               </CCol>
 
               <CCol xs={6} className="d-flex justify-content-center align-items-center">
-                {/* Input per il caricamento dell'immagine */}
                 <label htmlFor="file-upload">
                   <img
                     src={uploadimg}
                     width={370}
                     height={160}
                     alt="Upload"
-                    style={{ cursor: 'pointer' }} // Mostra il cursore a forma di mano
+                    style={{ cursor: 'pointer' }}
                   />
                   <input
                     type="file"

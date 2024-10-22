@@ -17,7 +17,7 @@ const AddHardware = () => {
       await addtotem(idCimitero)
       navigate('/base/tables/totem/hardware')
     } catch (e) {
-      //console.error('Errore ' + e)
+      console.error('Errore ' + e)
     }
   }
 

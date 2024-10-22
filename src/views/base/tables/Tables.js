@@ -17,7 +17,6 @@ import avatar1 from 'src/assets/images/cimitero.png'
 import { deleteCimitero, getList } from '../../../services/cimitero'
 import { getList as gethardwaretotem } from '../../../services/hardwaretotem'
 import { getList as getListaTotem } from '../../../services/totem'
-import { getFilteredListByIdUrna } from '../../../services/defunto'
 import avatar2 from 'src/assets/aggiungi.png'
 import avatarvisualizza from 'src/assets/visualizza.png'
 import avatarstampa from 'src/assets/stampa.png'
@@ -26,7 +25,6 @@ const Tables = () => {
   const navigate = useNavigate()
   const [users, setUserList] = useState([])
   const [listaTotemHardware, setlistaTotemHardware] = useState([])
-  const [printvalue, setprintvalue] = useState([])
 
   useEffect(() => {
     var userObjectList = []

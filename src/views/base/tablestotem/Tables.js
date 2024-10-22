@@ -26,8 +26,6 @@ const TablesTotem = (props) => {
 
     async function fetchData() {
       var cimiteri = await getList()
-
-      // Iterate over cimiteri and ensure data is set properly
       for (const item of cimiteri) {
         var nomeCitta = await getCimiteroNomeById(item.idCimitero)
         item.citta = nomeCitta
@@ -41,7 +39,7 @@ const TablesTotem = (props) => {
           provincia: item.regione,
           cap: item.cap,
           user: {
-            name: nomeCitta || 'Città non disponibile', // Ensure citta exists
+            name: nomeCitta || 'Città non disponibile',
             new: false,
             registered: '',
           },
@@ -56,8 +54,6 @@ const TablesTotem = (props) => {
           istemplatevalid: item.istemplatevalid,
         })
       }
-
-      // Filtering list by IdCimitero if needed
       try {
         var listfilter = []
         var IdCimiterofilter = localStorage.getItem('IdCimitero')
