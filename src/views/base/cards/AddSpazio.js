@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { CButton, CCard, CCardBody, CCol, CFormInput, CInputGroup, CRow } from '@coreui/react'
 import immg1 from '../../../assets/layout/01.png'
-import immg2 from '../../../assets/layout/07.png'
+import immg2 from '../../../assets/layout/02.png'
+import immg3 from '../../../assets/layout/03.png'
+import immg4 from '../../../assets/layout/04.png'
+import immg5 from '../../../assets/layout/05.png'
+import immg6 from '../../../assets/layout/06.png'
+import immg7 from '../../../assets/layout/07.png'
 import uploadimg from '../../../assets/upload.png'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -156,10 +161,10 @@ const AddSpazio = () => {
                 <div>
                   {valueTemplate === 1 ? <img src={immg1} width={300} alt="Template 1" /> : ''}
                   {valueTemplate === 2 ? <img src={immg2} width={300} alt="Template 2" /> : ''}
-                  {valueTemplate === 3 ? <img src={immg2} width={300} alt="Template 3" /> : ''}
-                  {valueTemplate === 4 ? <img src={immg2} width={300} alt="Template 4" /> : ''}
-                  {valueTemplate === 5 ? <img src={immg2} width={300} alt="Template 5" /> : ''}
-                  {valueTemplate === 6 ? <img src={immg2} width={300} alt="Template 6" /> : ''}
+                  {valueTemplate === 3 ? <img src={immg3} width={300} alt="Template 3" /> : ''}
+                  {valueTemplate === 4 ? <img src={immg4} width={300} alt="Template 4" /> : ''}
+                  {valueTemplate === 5 ? <img src={immg5} width={300} alt="Template 5" /> : ''}
+                  {valueTemplate === 6 ? <img src={immg6} width={300} alt="Template 6" /> : ''}
                   <p></p>
                   <p></p>
                   <p></p>
