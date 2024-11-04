@@ -45,109 +45,106 @@ const Cimitero = () => {
 
   const getWidgeInput = (placeholder, autoComplete, onChangeFunction) => {
     return (
-      <p width={100}>
-        <CInputGroup className="mb-3">
-          <CFormInput
-            placeholder={placeholder}
-            autoComplete={autoComplete}
-            onChange={onChangeFunction}
-          />
-        </CInputGroup>
-      </p>
+      <CInputGroup className="mb-3">
+        <CFormInput
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          onChange={onChangeFunction}
+        />
+      </CInputGroup>
     )
   }
+
   useEffect(() => {
     if (region.length > 0) {
-      var index = 0
-      if (region == 'Basilicata') {
-        index = 1
-      } else if (region == 'Calabria') {
-        index = 2
-      } else if (region == 'Campania') {
-        index = 3
-      } else if (region == 'Emilia-Romagna') {
-        index = 4
-      } else if (region == 'Friuli-Venezia Giulia') {
-        index = 5
-      } else if (region == 'Lazio') {
-        index = 6
-      } else if (region == 'Liguria') {
-        index = 7
-      } else if (region == 'Lombardia') {
-        index = 8
-      } else if (region == 'Marche') {
-        index = 9
-      } else if (region == 'Molise') {
-        index = 10
-      } else if (region == 'Piemonte') {
-        index = 11
-      } else if (region == 'Puglia') {
-        index = 12
-      } else if (region == 'Sardegna') {
-        index = 13
-      } else if (region == 'Sicilia') {
-        index = 14
-      } else if (region == 'Toscana') {
-        index = 15
-      } else if (region == 'Trentino-Alto Adige') {
-        index = 16
-      } else if (region == 'Umbria') {
-        index = 17
-      } else if (region == "Valle d'Aosta") {
-        index = 18
-      } else if (region == 'Veneto') {
-        index = 19
+      let index = [
+        'Basilicata',
+        'Calabria',
+        'Campania',
+        'Emilia-Romagna',
+        'Friuli-Venezia Giulia',
+        'Lazio',
+        'Liguria',
+        'Lombardia',
+        'Marche',
+        'Molise',
+        'Piemonte',
+        'Puglia',
+        'Sardegna',
+        'Sicilia',
+        'Toscana',
+        'Trentino-Alto Adige',
+        'Umbria',
+        "Valle d'Aosta",
+        'Veneto',
+      ].indexOf(region)
+      if (index !== -1) {
+        setCityList(objectList[index]['provinces'])
       }
-      setCityList(objectList[index]['provinces'])
     }
-  })
+  }, [region])
+
   return (
-    <CRow>
+    <CRow className="justify-content-center">
       <CCol xs={6}>
-        <CCard className="mb-6">
-          <CCardHeader>
+        <CCard
+          className="mb-6"
+          style={{ backgroundColor: 'transparent', border: 'none', paddingTop: '30px' }}
+        >
+          <CCardHeader
+            className="text-center"
+            style={{ backgroundColor: 'transparent', border: 'none', paddingTop: '30px' }}
+          >
             {error === true ? (
               <p style={{ color: 'red' }}>Errore: compilati tutti i campi</p>
             ) : (
               <strong>Per inserire un nuovo cimitero compila i campi qui sotto:</strong>
             )}
           </CCardHeader>
-          <p></p>
-          {getWidgeInput('Associa un nome al nuovo cimitero', 'nome', changetext)}
-          <div>
-            <b>Nazione</b>
-            <CountryDropdown
-              value={country}
-              onChange={(val) => setCountry(val)}
-              priorityOptions={['IT']}
-              style={{ width: '100%', height: '30%' }}
-            />
-            <b>Regione</b>
-            <RegionDropdown
-              country={country}
-              value={region}
-              onChange={(val) => setRegion(val)}
-              style={{ width: '100%', height: '30%' }}
-            />
-
-            {region.length > 0 ? (
-              <>
-                <b>Citta</b>
-                <Autocomplete
-                  disablePortal
-                  id="combo-box-demo"
-                  options={cityList}
-                  sx={{ width: '100%', height: '30%' }}
-                  renderInput={(params) => <TextField {...params} label="Citta" />}
-                  onChange={(val) => setCity(val.target.outerText)}
-                />
-              </>
-            ) : (
-              <></>
-            )}
+          <div className="text-center">
+            {getWidgeInput('Associa un nome al nuovo cimitero', 'nome', changetext)}
+            <div>
+              <label>
+                <b>Seleziona nazione</b>
+              </label>
+              <CountryDropdown
+                value={country}
+                onChange={(val) => setCountry(val)}
+                priorityOptions={['IT']}
+                style={{ width: '100%', height: '30%' }}
+              />
+              <label>
+                <b>Regione</b>
+              </label>
+              <RegionDropdown
+                country={country}
+                value={region}
+                onChange={(val) => setRegion(val)}
+                style={{ width: '100%', height: '30%' }}
+              />
+              {region.length > 0 && (
+                <>
+                  <label>
+                    <b>Citta</b>
+                  </label>
+                  <Autocomplete
+                    disablePortal
+                    id="combo-box-demo"
+                    options={cityList}
+                    sx={{ width: '100%', height: '30%' }}
+                    renderInput={(params) => <TextField {...params} label="Citta" />}
+                    onChange={(val) => setCity(val.target.outerText)}
+                  />
+                </>
+              )}
+            </div>
           </div>
-          <CCardBody>
-            <CButton color={'success'} onClick={() => inserisci()}>
+          <CCardBody className="text-center">
+            <CButton
+              color={'success'}
+              onClick={() => inserisci()}
+              style={{ backgroundColor: 'white', color: 'lightblue', border: '2px solid white' }}
+            >
               Inserisci
             </CButton>
           </CCardBody>

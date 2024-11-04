@@ -115,7 +115,13 @@ const Tables = () => {
   return (
     <>
       <div style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
-        <CButton onClick={() => gotoadd()}>Inserisci nuovo cimitero</CButton>
+        <p></p>
+        <CButton
+          onClick={() => gotoadd()}
+          style={{ backgroundColor: 'white', color: 'lightblue', border: '2px solid white' }}
+        >
+          Inserisci nuovo cimitero
+        </CButton>
 
         <p></p>
         <p></p>
