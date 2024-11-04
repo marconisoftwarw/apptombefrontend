@@ -91,10 +91,7 @@ const Cimitero = () => {
           className="mb-6"
           style={{ backgroundColor: 'transparent', border: 'none', paddingTop: '30px' }}
         >
-          <CCardHeader
-            className="text-center"
-            style={{ backgroundColor: 'transparent', border: 'none', paddingTop: '30px' }}
-          >
+          <CCardHeader className="text-center">
             {error === true ? (
               <p style={{ color: 'red' }}>Errore: compilati tutti i campi</p>
             ) : (
@@ -140,11 +137,7 @@ const Cimitero = () => {
             </div>
           </div>
           <CCardBody className="text-center">
-            <CButton
-              color={'success'}
-              onClick={() => inserisci()}
-              style={{ backgroundColor: 'white', color: 'lightblue', border: '2px solid white' }}
-            >
+            <CButton color={'success'} onClick={() => inserisci()}>
               Inserisci
             </CButton>
           </CCardBody>
