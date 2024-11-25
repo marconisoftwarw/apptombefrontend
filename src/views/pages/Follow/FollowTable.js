@@ -114,7 +114,7 @@ const FollowTables = () => {
                     <div className="small text-medium-emphasis">{item.cimitero}</div>
                   </CTableDataCell>
                   <CTableDataCell>
-                    <div align="center" className="small text-medium-emphasis">
+                    <div className="small text-medium-emphasis">
                       <CButton color="success" variant="outline" onClick={() => followUser(item)}>
                         Segui
                       </CButton>
