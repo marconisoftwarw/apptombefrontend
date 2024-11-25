@@ -34,7 +34,6 @@ const FollowTables = () => {
     if ((await follow(name, surname, email, item.nome + ' ' + item.cognome, item.id)) === true) {
       notify('Registrazione follow avvenuta con successo, ti abbiamo inviato un email di conferma')
       navigate('/')
- 
     } else {
       notify('Errore: inserimento non riuscito')
     }
