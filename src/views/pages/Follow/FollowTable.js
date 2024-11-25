@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {
@@ -16,6 +15,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { cilUser } from '@coreui/icons'
 import { follow } from 'src/services/defunto'
 import './App.css'
+
 const FollowTables = () => {
   const notify = (message) => toast(message)
   const navigate = useNavigate()
@@ -24,10 +24,16 @@ const FollowTables = () => {
   var name, surname, email
 
   const followUser = async (item) => {
+    // Validazione campi
+    if (!name || !surname || !email) {
+      notify('Per favore compila Nome, Cognome ed Email prima di proseguire.')
+      return
+    }
+
+    // Chiamata al servizio
     if ((await follow(name, surname, email, item.nome + ' ' + item.cognome, item.id)) === true) {
       notify('Registrazione follow avvenuta con successo, ti abbiamo inviato un email di conferma')
-      setInterval(() => {
-        window.stop()
+      setTimeout(() => {
         navigate('/login')
       }, 3000)
     } else {
@@ -45,6 +51,7 @@ const FollowTables = () => {
   const saveEmail = (event) => {
     email = event.target.value
   }
+
   return (
     <div className="background-container">
       <div style={{ height: '100%', width: '80%' }}>
@@ -123,23 +130,6 @@ const FollowTables = () => {
           <></>
         )}
         <ToastContainer />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br> <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br> <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br> <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
       </div>
     </div>
   )

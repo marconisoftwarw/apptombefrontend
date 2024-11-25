@@ -13,14 +13,14 @@
 }
 .background-container {
   background-image: url('../../../assets/sfondo.png');
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
+  background-size: cover; /* Assicura che l'immagine copra interamente l'area */
+  background-repeat: no-repeat; /* Evita che l'immagine venga ripetuta */
+  background-position: center; /* Centra l'immagine */
+  width: 100vw; /* Larghezza intera della finestra */
+  height: 100vh; /* Altezza intera della finestra */
+  display: flex; /* Opzionale: per centrare i contenuti */
+  align-items: center; /* Opzionale: centrare verticalmente */
+  justify-content: center; /* Opzionale: centrare orizzontalmente */
 }
 .custom-button {
   position: absolute;
