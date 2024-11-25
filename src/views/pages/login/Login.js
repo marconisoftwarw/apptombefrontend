@@ -5,13 +5,13 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { CForm } from '@coreui/react'
 import sfondo from 'src/assets/sfondo.png'
+import WebFont from 'webfontloader'
 import './App.css'
+
+// Hook per ottenere le dimensioni della finestra
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window
-  return {
-    width,
-    height,
-  }
+  return { width, height }
 }
 
 function useWindowDimensions() {
@@ -34,10 +34,17 @@ const Login = () => {
   let user, password
   const notify = (message) => toast(message)
 
+  useEffect(() => {
+    // Caricamento del font
+    WebFont.load({
+      google: { families: ['Red Hat Text:300', 'sans-serif'] },
+    })
+  }, [])
+
   const loginfunction = async () => {
-    var islogin = await loginUser(user, password)
+    const islogin = await loginUser(user, password)
     if (islogin === true) {
-      var type = await localStorage.getItem('type')
+      const type = await localStorage.getItem('type')
       if (type === 'UTENTE') {
         navigate('/messaggi')
       } else if (type === 'ADMIN1') {
@@ -107,20 +114,18 @@ const Login = () => {
             type="text"
             placeholder="Username"
             onChange={changeTextUsername}
-            style={{ marginBottom: '20px', width: '100%' }}
           />
           <input
             className="custom-textbox"
             type="password"
             placeholder="Password"
             onChange={changeTextPassword}
-            style={{ marginBottom: '20px', width: '100%' }}
           />
-          <button className="custom-button" onClick={loginfunction} style={{ width: '100%' }}>
+          <button className="custom-button" onClick={loginfunction}>
             Login
           </button>
           <p></p>
-          <button className="custom-button" onClick={followFunction} style={{ width: '100%' }}>
+          <button className="custom-button" onClick={followFunction}>
             Segui un defunto
           </button>
         </div>

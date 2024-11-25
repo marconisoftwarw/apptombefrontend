@@ -1,16 +1,21 @@
+/* Importazione del font */
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300&display=swap');
 
+/* Impostazioni generali */
 .App {
   position: relative;
   min-height: 100vh;
 }
 
+/* Stile dell'intestazione */
 .custom-heading {
   font-family: 'Red Hat Text', sans-serif;
   font-weight: 100; /* Light */
   font-size: 50px;
   text-align: center;
 }
+
+/* Contenitore di sfondo */
 .background-container {
   background-image: url('../../../assets/sfondo.png');
   background-size: cover;
@@ -22,27 +27,34 @@
   padding: 20px;
   box-sizing: border-box;
 }
+
+/* Pulsante personalizzato */
 .custom-button {
-  left: 90px;
-  width: 80px;
+  width: 150px;
   height: 51px;
-  background: #2b87ba 0% 0% no-repeat padding-box;
+  background: #2b87ba;
   border-radius: 25px;
   opacity: 1;
   border: none;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.custom-button:hover {
+  background-color: #1a5c85;
+}
+
+/* Textbox personalizzato */
 .custom-textbox {
-  top: 100px;
-  left: 30px;
-  width: 350px;
+  width: 250px;
   height: 41px;
   border: 3px solid #2b87ba;
   border-radius: 25px;
-  opacity: 1;
   padding: 10px;
   font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+  margin-bottom: 20px;
 }
