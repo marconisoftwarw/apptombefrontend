@@ -8,34 +8,12 @@ import sfondo from 'src/assets/sfondo.png'
 import WebFont from 'webfontloader'
 import './App.css'
 
-// Hook per ottenere le dimensioni della finestra
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window
-  return { width, height }
-}
-
-function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions())
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  return windowDimensions
-}
-
 const Login = () => {
   const navigate = useNavigate()
   let user, password
   const notify = (message) => toast(message)
 
   useEffect(() => {
-    // Caricamento del font
     WebFont.load({
       google: { families: ['Red Hat Text:300', 'sans-serif'] },
     })
@@ -85,28 +63,28 @@ const Login = () => {
     >
       <CForm
         style={{
-          width: '300px',
+          width: '350px',
           height: 'auto',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          marginTop: '100px',
         }}
       >
         <div
           style={{
             width: '100%',
             backgroundColor: 'white',
-            borderRadius: '30px',
+            borderRadius: '15px',
             padding: '20px',
             boxSizing: 'border-box',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
           }}
         >
           <h1 className="custom-heading">Segui un defunto</h1>
-          <p className="text-medium-emphasis" style={{ marginBottom: '20px' }}>
+          <p className="text-medium-emphasis" style={{ marginBottom: '20px', textAlign: 'center' }}>
             Esegui il login
           </p>
           <input
@@ -114,17 +92,22 @@ const Login = () => {
             type="text"
             placeholder="Username"
             onChange={changeTextUsername}
+            style={{ marginBottom: '15px', width: '100%' }}
           />
           <input
             className="custom-textbox"
             type="password"
             placeholder="Password"
             onChange={changeTextPassword}
+            style={{ marginBottom: '15px', width: '100%' }}
           />
-          <button className="custom-button" onClick={loginfunction}>
+          <button
+            className="custom-button"
+            onClick={loginfunction}
+            style={{ marginBottom: '10px' }}
+          >
             Login
           </button>
-          <p></p>
           <button className="custom-button" onClick={followFunction}>
             Segui un defunto
           </button>
