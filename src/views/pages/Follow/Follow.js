@@ -57,10 +57,16 @@ const Follow = () => {
       style={{
         backgroundImage: `url(${sfondo})`,
         backgroundSize: 'cover',
-        height: '100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        height: '100vh',
+        width: '100vw',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <CForm style={{ width: 400, marginLeft: 400, height: 1000 }}>
+      <CForm style={{ width: 400, marginLeft: 100, height: 1000, marginTop: 500, marginRight: 0 }}>
         <div
           style={{
             width: 400,
