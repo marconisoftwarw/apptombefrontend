@@ -129,7 +129,7 @@ const TablesCustom = () => {
                   <>
                     <CTableDataCell className="text-center" key={Math.random()}>
                       <CButton onClick={() => setlayout(item, item.totemList[0])}>
-                        Visualizza Urna
+                        Modifica Urna
                       </CButton>
                     </CTableDataCell>
                   </>
