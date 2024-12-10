@@ -22,12 +22,15 @@ import Dropdown from 'react-bootstrap/Dropdown'
 const TablesCustom = () => {
   const navigate = useNavigate()
   const [users, setUserList] = useState([])
+
   useEffect(() => {
     var userObjectList = []
     async function fetchData() {
       var defunti = await getListDefunti()
       var cimiteri = await getListCimitero()
       var listaTotem = await getTotemList()
+
+      const urneAssociate = new Set() // Per tenere traccia delle urne già associate
 
       for (var i = 0; i < defunti.length; i++) {
         var totemListValue = []
@@ -39,6 +42,8 @@ const TablesCustom = () => {
         var dataMorte = defunti[i].dataMorte
         var istemplatevalid = false
         var citta = ''
+
+        // Cerca il cimitero
         for (var i2 = 0; i2 < cimiteri.length; i2++) {
           if (cimiteri[i2].id == defunti[i].idCimitero) {
             citta = cimiteri[i2].citta
@@ -46,16 +51,20 @@ const TablesCustom = () => {
           }
         }
 
+        // Cerca i totem per il cimitero e registra quelli associati
         for (var i3 = 0; i3 < listaTotem.length; i3++) {
           if (idCimitero == listaTotem[i3].idCimitero) {
             isValid = true
             var totemName = listaTotem[i3].id
             istemplatevalid = listaTotem[i3].istemplatevalid
+            if (istemplatevalid) {
+              urneAssociate.add(totemName) // Aggiungi l'urna alla lista di quelle associate
+            }
             totemListValue.push(totemName)
           }
         }
+
         if (isValid == true) {
-          console.log(istemplatevalid)
           userObjectList.push({
             id: id,
             nome: nome,
@@ -68,6 +77,12 @@ const TablesCustom = () => {
           })
         }
       }
+
+      // Filtra le urne non associate
+      userObjectList = userObjectList.map((user) => ({
+        ...user,
+        totemList: user.totemList.filter((totem) => !urneAssociate.has(totem)),
+      }))
 
       setUserList(userObjectList)
     }
@@ -159,8 +174,10 @@ const TablesCustom = () => {
     </>
   )
 }
+
 const Cards = () => {
   var [cimiteriList, setCimiteriList] = useState([])
+
   useEffect(() => {
     var list = []
     async function fetchData() {
