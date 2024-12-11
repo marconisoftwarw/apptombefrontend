@@ -1,6 +1,30 @@
 import * as axios from 'axios'
 import { getConfig, url } from './settings'
 
+export async function createUser({ name, surname, username, password, email, enable, type }) {
+  try {
+    const response = await axios.post(`${url}/user`, {
+      name: name,
+      surname: surname,
+      username: username,
+      password: password,
+      email: email,
+      enable: enable, // Using the enable value from the form
+      type: type, // Using the type value from the form
+    })
+
+    // Check if the user creation is successful
+    if (response.data.success) {
+      return { success: true, message: 'User created successfully' }
+    } else {
+      return { success: false, message: 'Failed to create user' }
+    }
+  } catch (error) {
+    console.error('Error creating user:', error)
+    return { success: false, message: 'An error occurred during user creation' }
+  }
+}
+
 export async function loginUser(username, password) {
   var result = false
   await axios

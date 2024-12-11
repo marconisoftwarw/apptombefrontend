@@ -42,7 +42,7 @@ const FollowTables = () => {
   const saveName = (event) => {
     name = event.target.value
   }
-  const savesurname = (event) => {
+  const saveSurname = (event) => {
     surname = event.target.value
   }
 
@@ -53,8 +53,8 @@ const FollowTables = () => {
   return (
     <div className="background-container">
       <div style={{ height: '100%', width: '80%' }}>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
         <table>
           <input
             className="custom-textbox"
@@ -67,7 +67,7 @@ const FollowTables = () => {
             className="custom-textbox"
             type="text"
             placeholder="Cognome"
-            onChange={savesurname}
+            onChange={saveSurname}
             style={{ marginLeft: '40%', width: '200px' }}
           />
           <input
@@ -78,11 +78,11 @@ const FollowTables = () => {
             style={{ marginLeft: '60%', width: '200px' }}
           />
         </table>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         {objectList.length > 0 ? (
           <CTable align="middle" className="mb-0 border" hover responsive>
             <CTableHead color="light">
@@ -98,11 +98,7 @@ const FollowTables = () => {
             </CTableHead>
             <CTableBody>
               {objectList.map((item, index) => (
-                <CTableRow
-                  v-for="item in tableItems"
-                  key={index}
-                  style={{ backgroundColor: 'white' }}
-                >
+                <CTableRow key={index} style={{ backgroundColor: 'white' }}>
                   <CTableDataCell></CTableDataCell>
                   <CTableDataCell>
                     <div>{item.nome}</div>

@@ -13,7 +13,6 @@ import {
   CTableRow,
 } from '@coreui/react'
 import { useNavigate } from 'react-router-dom'
-import avatarvisualizza from 'src/assets/visualizza.png'
 import { getList as getListCimitero } from '../../../services/cimitero'
 import { getList as getListDefunti } from '../../../services/defunto'
 import { getList as getTotemList } from '../../../services/totem'

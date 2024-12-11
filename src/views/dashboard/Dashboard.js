@@ -9,16 +9,26 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
+  CFormInput, // Import for form input
+  CFormSelect, // Import for select dropdown
+  CFormCheck, // Import for checkbox (enable)
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cifIt, cilPeople } from '@coreui/icons'
 import avatar1 from 'src/assets/images/avatars/1.jpg'
-import { aggiornatipologia, changeStateUser, deleteUser, getuserList } from '../../services/user'
+import {
+  aggiornatipologia,
+  changeStateUser,
+  deleteUser,
+  getuserList,
+  createUser,
+} from '../../services/user'
 import Dropdown from 'react-bootstrap/Dropdown'
 import 'react-toastify/dist/ReactToastify.css'
 import logo from './../../assets/usericon.png'
 import deletelogo from './../../assets/delete.png'
 import enablelogo from './../../assets/enable.png'
+
 /* eslint-disable react/prop-types */
 
 function DropdownCustomUser(props) {
@@ -38,8 +48,19 @@ function DropdownCustomUser(props) {
     </Dropdown>
   )
 }
+
 const Dashboard = () => {
   const [users, setUserList] = useState([])
+  const [newUser, setNewUser] = useState({
+    name: '',
+    surname: '',
+    username: '',
+    password: '',
+    email: '',
+    enable: true,
+    type: 'UTENTE',
+  })
+
   useEffect(() => {
     var userObjectList = []
     async function fetchData() {
@@ -68,6 +89,7 @@ const Dashboard = () => {
     }
     fetchData()
   }, [])
+
   const updateStateUser = async (user) => {
     await changeStateUser(user.id, user.enable)
   }
@@ -75,13 +97,44 @@ const Dashboard = () => {
   const deleteUserTable = async (user) => {
     if ((await deleteUser(user.id)) == true) {
       window.location.reload(false)
-    } else {
-      //console.error('Errore eliminazione utente')
+    }
+  }
+
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setNewUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }))
+  }
+
+  // Handle the "Enable" checkbox toggle
+  const handleEnableChange = (e) => {
+    setNewUser((prevUser) => ({
+      ...prevUser,
+      enable: e.target.checked,
+    }))
+  }
+
+  // Function to handle adding a new user
+  const handleAddUser = async () => {
+    try {
+      const response = await createUser(newUser)
+      if (response.success) {
+        window.location.reload(false)
+      } else {
+        alert("Errore nella creazione dell'utente")
+      }
+    } catch (error) {
+      console.error("Errore nell'aggiunta dell'utente:", error)
+      alert("Errore nell'aggiunta dell'utente")
     }
   }
 
   return (
     <>
+      {/* Users Table */}
       <CTable
         align="middle"
         className="mb-0 border"
@@ -154,6 +207,74 @@ const Dashboard = () => {
           ))}
         </CTableBody>
       </CTable>
+      <br></br>
+      <br></br>
+      <b>Creazione Utente</b>
+      <div style={{ width: '200px' }}>
+        <div className="mb-2">
+          <CFormInput
+            type="text"
+            placeholder="Nome"
+            name="name"
+            value={newUser.name}
+            onChange={handleInputChange}
+            className="mb-2"
+          />
+          <CFormInput
+            type="text"
+            placeholder="Cognome"
+            name="surname"
+            value={newUser.surname}
+            onChange={handleInputChange}
+            className="mb-2"
+          />
+          <CFormInput
+            type="text"
+            placeholder="Username"
+            name="username"
+            value={newUser.username}
+            onChange={handleInputChange}
+            className="mb-2"
+          />
+          <CFormInput
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={newUser.password}
+            onChange={handleInputChange}
+            className="mb-2"
+          />
+          <CFormInput
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={newUser.email}
+            onChange={handleInputChange}
+            className="mb-2"
+          />
+          <CFormCheck
+            type="checkbox"
+            label="Enable"
+            name="enable"
+            checked={newUser.enable}
+            onChange={handleEnableChange}
+            className="mb-2"
+          />
+          <CFormSelect
+            name="type"
+            value={newUser.type}
+            onChange={handleInputChange}
+            className="mb-2"
+          >
+            <option value="ADMIN">Admin</option>
+            <option value="ADMIN1">Admin User</option>
+            <option value="UTENTE">Utente</option>
+          </CFormSelect>
+          <CButton color="primary" onClick={handleAddUser}>
+            Aggiungi Utente
+          </CButton>
+        </div>
+      </div>
     </>
   )
 }
