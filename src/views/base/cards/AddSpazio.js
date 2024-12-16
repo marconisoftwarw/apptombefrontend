@@ -8,7 +8,6 @@ import immg3 from '../../../assets/layout/03.png'
 import immg4 from '../../../assets/layout/04.png'
 import immg5 from '../../../assets/layout/05.png'
 import immg6 from '../../../assets/layout/06.png'
-import immg7 from '../../../assets/layout/07.png'
 import uploadimg from '../../../assets/upload.png'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -175,10 +174,13 @@ const AddSpazio = () => {
                   {uploadedImage ? (
                     <img
                       src={uploadedImage}
-                      width={370}
-                      height={160}
                       alt="Caricata"
-                      style={{ cursor: 'pointer' }}
+                      style={{
+                        cursor: 'pointer',
+                        maxWidth: '100%', // Adatta l'immagine alla larghezza disponibile
+                        maxHeight: '200px', // Imposta un'altezza massima per non occupare troppo spazio
+                        objectFit: 'contain', // Mantieni le proporzioni
+                      }}
                     />
                   ) : (
                     <img
