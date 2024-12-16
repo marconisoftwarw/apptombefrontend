@@ -67,9 +67,6 @@ const AddSpazio = () => {
     const idCimitero = await localStorage.getItem('idCimitero')
     const idTotem = await localStorage.getItem('idTotem')
 
-    console.log(
-      idTotem + ' ' + idCimitero + ' ' + idDefunto + ' nome: ' + nome + ' testo: ' + testo,
-    )
     if (nome !== '') {
       await generateTemplate(
         nome,
@@ -100,6 +97,12 @@ const AddSpazio = () => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0]
     if (file) {
+      // Controlla che il file sia un PNG
+      if (file.type !== 'image/png') {
+        notify('Puoi caricare solo file PNG.')
+        return
+      }
+
       const reader = new FileReader()
       reader.onloadend = () => {
         setUploadedImage(reader.result)
@@ -128,7 +131,7 @@ const AddSpazio = () => {
             placeholder={placeholder}
             autoComplete={autoComplete}
             onChange={onChangeFunction}
-            style={{ borderRadius: '25px', height: '100%' }} // Applica il bordo arrotondato anche al campo di input
+            style={{ borderRadius: '25px', height: '100%' }}
           />
         </CInputGroup>
       </div>
@@ -146,8 +149,6 @@ const AddSpazio = () => {
             <div style={{ marginLeft: '50px', marginLeft: '100px' }}>
               <DropdownSample setValue={setValueTemplate} />
             </div>
-            <p></p>
-
             <CRow
               className="g-0"
               style={{
@@ -159,43 +160,48 @@ const AddSpazio = () => {
             >
               <CCol xs={6} className="d-flex justify-content-center align-items-center">
                 <div>
-                  {valueTemplate === 1 ? <img src={immg1} width={300} alt="Template 1" /> : ''}
-                  {valueTemplate === 2 ? <img src={immg2} width={300} alt="Template 2" /> : ''}
-                  {valueTemplate === 3 ? <img src={immg3} width={300} alt="Template 3" /> : ''}
-                  {valueTemplate === 4 ? <img src={immg4} width={300} alt="Template 4" /> : ''}
-                  {valueTemplate === 5 ? <img src={immg5} width={300} alt="Template 5" /> : ''}
-                  {valueTemplate === 6 ? <img src={immg6} width={300} alt="Template 6" /> : ''}
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                  <p>Nome: {localStorage.getItem('NomeDefuntoLoad').replace('<br></br>', '')}</p>
+                  {valueTemplate === 1 && <img src={immg1} width={300} alt="Template 1" />}
+                  {valueTemplate === 2 && <img src={immg2} width={300} alt="Template 2" />}
+                  {valueTemplate === 3 && <img src={immg3} width={300} alt="Template 3" />}
+                  {valueTemplate === 4 && <img src={immg4} width={300} alt="Template 4" />}
+                  {valueTemplate === 5 && <img src={immg5} width={300} alt="Template 5" />}
+                  {valueTemplate === 6 && <img src={immg6} width={300} alt="Template 6" />}
+                  <p>Nome: {localStorage.getItem('NomeDefuntoLoad')?.replace('<br></br>', '')}</p>
                 </div>
               </CCol>
 
               <CCol xs={6} className="d-flex justify-content-center align-items-center">
                 <label htmlFor="file-upload">
-                  <img
-                    src={uploadimg}
-                    width={370}
-                    height={160}
-                    alt="Upload"
-                    style={{ cursor: 'pointer' }}
-                  />
+                  {uploadedImage ? (
+                    <img
+                      src={uploadedImage}
+                      width={370}
+                      height={160}
+                      alt="Caricata"
+                      style={{ cursor: 'pointer' }}
+                    />
+                  ) : (
+                    <img
+                      src={uploadimg}
+                      width={370}
+                      height={160}
+                      alt="Upload"
+                      style={{ cursor: 'pointer' }}
+                    />
+                  )}
                   <input
                     type="file"
                     id="file-upload"
-                    accept="image/*"
+                    accept="image/png"
                     onChange={handleImageUpload}
-                    style={{ display: 'none' }} // Nasconde il campo di input
+                    style={{ display: 'none' }}
                   />
                 </label>
               </CCol>
             </CRow>
 
             <div style={{ marginLeft: '50px', width: '200px' }}>
-              <p></p>
               {getWidgeInput('Testo', 'Testo', changetesto)}
-              <p></p>
               {getWidgeInput('Messaggio', 'messaggio', changetesto)}
               <CCardBody>
                 <CButton
