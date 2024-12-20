@@ -1,55 +1,73 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState } from 'react'
 import { CForm } from '@coreui/react'
 import { searchbyname as searchdefunto } from '../../../services/defunto'
 import { getList as getListCimitero } from '../../../services/cimitero'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css'
 import sfondo from 'src/assets/sfondo.png'
 import './App.css'
+
 const Follow = () => {
   const navigate = useNavigate()
 
-  let user, Regione, citta
+  // Storing state values
+  const [user, setUser] = useState('')
+  const [cognome, setCognome] = useState('')
+  const [regione, setRegione] = useState('')
+  const [citta, setCitta] = useState('')
+  const [dataMorte, setDataMorte] = useState('') // New state for data di morte
+  const [objectList, setObjectList] = useState([])
 
-  var objectList = [{ id: '', nome: '', cognome: '', cimitero: '' }]
-
+  // Function to handle search
   const search = async () => {
-    var defunti = await searchdefunto(user, Regione, citta)
-    var cimiteri = await getListCimitero()
-
-    objectList = []
-    for (var i = 0; i < defunti.length; i++) {
-      var id = defunti[i].id
-      var nome = defunti[i].nome
-      var cognome = defunti[i].cognome
-      var citta = ''
-      for (var i2 = 0; i2 < cimiteri.length; i2++) {
-        if (cimiteri[i2].id == defunti[i].idCimitero) {
-          citta = cimiteri[i2].citta
-        }
-      }
-      objectList.push({
-        id: id,
-        nome: nome,
-        cognome: cognome,
-        cimitero: citta,
-      })
+    // Check if mandatory fields are filled
+    if (!user || !cognome || !citta) {
+      toast.error('Nome, cognome e città sono obbligatori!')
+      return
     }
 
-    navigate('/follow/user', { state: { objectList: objectList } })
+    try {
+      const defunti = await searchdefunto(user, cognome, regione, citta, dataMorte) // Pass the new fields
+      const cimiteri = await getListCimitero()
+
+      const results = defunti.map((defunto) => {
+        const cimitero = cimiteri.find((c) => c.id === defunto.idCimitero)
+        return {
+          id: defunto.id,
+          nome: defunto.nome,
+          cognome: defunto.cognome,
+          cimitero: cimitero ? cimitero.citta : 'Non disponibile',
+        }
+      })
+
+      setObjectList(results)
+      navigate('/follow/user', { state: { objectList: results } })
+    } catch (error) {
+      toast.error('Si è verificato un errore durante la ricerca!')
+    }
   }
 
+  // Handlers for input changes
   const changeTextUsername = (val) => {
-    user = val.target.value
+    setUser(val.target.value)
+  }
+
+  const changeTextCognome = (val) => {
+    setCognome(val.target.value)
   }
 
   const changeTextRegione = (val) => {
-    Regione = val.target.value
+    setRegione(val.target.value)
   }
+
   const changeTextCitta = (val) => {
-    citta = val.target.value
+    setCitta(val.target.value)
+  }
+
+  const changeTextDataMorte = (val) => {
+    setDataMorte(val.target.value)
   }
 
   return (
@@ -70,49 +88,67 @@ const Follow = () => {
         <div
           style={{
             width: 400,
-            height: 400,
+            height: 500,
             backgroundColor: 'white',
             alignContent: 'center',
-            borderRadius: '30px',
+            borderRadius: '40px',
             marginBottom: '20px',
+            padding: '5px', // Added padding for spacing
           }}
         >
           <div className="App">
-            <h1 className="custom-heading">Segui un defunto</h1>
-
-            <p className="text-medium-emphasis" style={{ marginLeft: '30px' }}>
-              Seleziona il comune di Residenza
-            </p>
-
-            <input
-              className="custom-textbox"
-              type="text"
-              placeholder="Nome defunto"
-              onChange={changeTextUsername}
-              style={{ marginTop: '30px' }}
-            />
-            <p></p>
-            <input
-              className="custom-textbox"
-              type="text"
-              placeholder="Regione"
-              onChange={changeTextRegione}
-              style={{ marginTop: '90px' }}
-            />
-            <input
-              className="custom-textbox"
-              type="text"
-              placeholder="Citta"
-              onChange={changeTextCitta}
-              style={{ marginTop: '150px' }}
-            />
-            <button
-              className="custom-button"
-              onClick={() => search()}
-              style={{ marginTop: '200px' }}
-            >
-              Ricerca
-            </button>
+            <div style={{ marginLeft: '100px' }}>
+              <h2> Segui un defunto</h2>
+            </div>
+            <div style={{ alignContent: 'center' }}>
+              <input
+                className="custom-textbox"
+                type="text"
+                placeholder="Nome defunto"
+                onChange={changeTextUsername}
+                style={{ marginTop: '10px', width: '200px', marginLeft: '80px' }} // Decreased the margin
+              />
+              <p></p>
+              <input
+                className="custom-textbox"
+                type="text"
+                placeholder="Cognome defunto"
+                onChange={changeTextCognome}
+                style={{ marginTop: '60px', width: '200px', marginLeft: '80px' }} // Decreased the margin
+              />
+              <p></p>
+              <input
+                className="custom-textbox"
+                type="text"
+                placeholder="Regione"
+                onChange={changeTextRegione}
+                style={{ marginTop: '110px', width: '200px', marginLeft: '80px' }} // Decreased the margin
+              />
+              <p></p>
+              <input
+                className="custom-textbox"
+                type="text"
+                placeholder="Città"
+                onChange={changeTextCitta}
+                style={{ marginTop: '160px', width: '200px', marginLeft: '80px' }} // Decreased the margin
+              />
+              <p></p>
+              <input
+                className="custom-textbox"
+                type="date"
+                placeholder="Data di Morte"
+                onChange={changeTextDataMorte}
+                style={{ marginTop: '210px', width: '200px', marginLeft: '80px' }} // Decreased the margin
+              />
+              <p></p>
+              <button
+                className="custom-button"
+                onClick={() => search()}
+                style={{ marginTop: '300px', marginRight: '10px' }}
+              >
+                Ricerca
+              </button>
+            </div>
           </div>
         </div>
       </CForm>
