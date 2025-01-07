@@ -30,12 +30,16 @@ function DropdownTemplateSelect(props) {
         Seleziona Template
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        <Dropdown.Item onClick={() => props.setValue(1)}>TEMPLATE 1</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(2)}>TEMPLATE 2</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(3)}>TEMPLATE 3</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(4)}>TEMPLATE 4</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(5)}>TEMPLATE 5</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(6)}>TEMPLATE 6</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(1)}>Azzurro</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(2)}>Botanico</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(3)}>Bronzo</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(4)}>Carta</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(5)}>Cerchio</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(6)}>Fregio</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(7)}>Giallo</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(8)}>Marmo</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(9)}>Origami</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.setValue(10)}>Rosa</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   )
