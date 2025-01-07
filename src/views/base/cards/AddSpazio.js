@@ -15,7 +15,7 @@ import { generateTemplate } from '../../../services/template'
 import Dropdown from 'react-bootstrap/Dropdown'
 import './AddSpazio.css'
 
-function DropdownSample(props) {
+function DropdownTemplateSelect(props) {
   return (
     <Dropdown>
       <Dropdown.Toggle
@@ -41,7 +41,7 @@ function DropdownSample(props) {
   )
 }
 
-DropdownSample.propTypes = {
+DropdownTemplateSelect.propTypes = {
   setValue: PropTypes.func.isRequired,
 }
 
@@ -146,8 +146,9 @@ const AddSpazio = () => {
             style={{ backgroundColor: 'white', marginRight: '10px', height: '100%' }}
           >
             <div style={{ marginLeft: '50px', marginLeft: '100px' }}>
-              <DropdownSample setValue={setValueTemplate} />
+              <DropdownTemplateSelect setValue={setValueTemplate} />
             </div>
+            <br></br>
             <CRow
               className="g-0"
               style={{
