@@ -9,12 +9,12 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
-  CFormInput, // Import for form input
-  CFormSelect, // Import for select dropdown
-  CFormCheck, // Import for checkbox (enable)
+  CFormInput,
+  CFormSelect,
+  CFormCheck,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cifIt, cilPeople } from '@coreui/icons'
+import { cilPeople } from '@coreui/icons'
 import avatar1 from 'src/assets/images/avatars/1.jpg'
 import {
   aggiornatipologia,
@@ -76,7 +76,7 @@ const Dashboard = () => {
             new: false,
             registered: user.email,
           },
-          country: { name: 'ITA', flag: cifIt },
+          country: { name: 'ITA', flag: 'flag-placeholder' },
           usage: {
             value: 42,
             period: '',
@@ -95,12 +95,11 @@ const Dashboard = () => {
   }
 
   const deleteUserTable = async (user) => {
-    if ((await deleteUser(user.id)) == true) {
+    if ((await deleteUser(user.id)) === true) {
       window.location.reload(false)
     }
   }
 
-  // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setNewUser((prevUser) => ({
@@ -109,7 +108,6 @@ const Dashboard = () => {
     }))
   }
 
-  // Handle the "Enable" checkbox toggle
   const handleEnableChange = (e) => {
     setNewUser((prevUser) => ({
       ...prevUser,
@@ -117,7 +115,6 @@ const Dashboard = () => {
     }))
   }
 
-  // Function to handle adding a new user
   const handleAddUser = async () => {
     try {
       const response = await createUser(newUser)
@@ -134,7 +131,6 @@ const Dashboard = () => {
 
   return (
     <>
-      {/* Users Table */}
       <CTable
         align="middle"
         className="mb-0 border"
@@ -144,32 +140,19 @@ const Dashboard = () => {
       >
         <CTableHead color="light" style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
           <CTableRow style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
-            <CTableHeaderCell
-              className="text-center"
-              style={{ backgroundColor: 'rgb(176, 219, 240)' }}
-            >
+            <CTableHeaderCell className="text-center">
               <CIcon icon={cilPeople} />
             </CTableHeaderCell>
-            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
-              Ruolo
-            </CTableHeaderCell>
-            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
-              Utente
-            </CTableHeaderCell>
-            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
-              Utilizzo
-            </CTableHeaderCell>
-            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
-              Registrazione
-            </CTableHeaderCell>
-            <CTableHeaderCell style={{ backgroundColor: 'rgb(176, 219, 240)' }}>
-              Azioni
-            </CTableHeaderCell>
+            <CTableHeaderCell>Ruolo</CTableHeaderCell>
+            <CTableHeaderCell>Utente</CTableHeaderCell>
+            <CTableHeaderCell>Utilizzo</CTableHeaderCell>
+            <CTableHeaderCell>Registrazione</CTableHeaderCell>
+            <CTableHeaderCell>Azioni</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
           {users.map((item, index) => (
-            <CTableRow v-for="item in tableItems" key={index}>
+            <CTableRow key={index}>
               <CTableDataCell className="text-center">
                 <CAvatar src={logo} size="md" />
               </CTableDataCell>
@@ -183,7 +166,6 @@ const Dashboard = () => {
                   {item.user.registered}
                 </div>
               </CTableDataCell>
-
               <CTableDataCell>
                 <div className="clearfix">
                   <div className="float-start">
@@ -198,7 +180,6 @@ const Dashboard = () => {
               <CTableDataCell>
                 <strong>{item.activity}</strong>
               </CTableDataCell>
-
               <CTableDataCell className="text-left">
                 <CAvatar src={enablelogo} size="md" onClick={() => updateStateUser(item)} />
                 <CAvatar src={deletelogo} size="md" onClick={() => deleteUserTable(item)} />
@@ -207,8 +188,7 @@ const Dashboard = () => {
           ))}
         </CTableBody>
       </CTable>
-      <br></br>
-      <br></br>
+      <br />
       <b>Creazione Utente</b>
       <div style={{ width: '200px' }}>
         <div className="mb-2">

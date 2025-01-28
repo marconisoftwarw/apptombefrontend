@@ -16,7 +16,9 @@ import { url } from '../../../services/settings'
 import urnaAvatar from 'src/assets/urna.png'
 import avatarvisualizza from 'src/assets/visualizza.png'
 import { getCimiteroNomeById } from '../../../services/cimitero'
-
+import Dropdown from 'react-bootstrap/Dropdown'
+import CIcon from '@coreui/icons-react'
+import { cilPeople } from '@coreui/icons'
 import avatardelete from 'src/assets/delete.png'
 const TablesTotem = (props) => {
   const [users, setUserList] = useState([])
@@ -161,6 +163,17 @@ const TablesTotem = (props) => {
                       onClick={() => showHtml(item.id, item.idCimitero)}
                     />
                   </CTableDataCell>
+
+                  <Dropdown>
+                    <Dropdown.Toggle variant="light">
+                      <CIcon icon={cilPeople} />
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item onClick={() => alert('Urn 1 selected')}>Urn 1</Dropdown.Item>
+                      <Dropdown.Item onClick={() => alert('Urn 2 selected')}>Urn 2</Dropdown.Item>
+                      <Dropdown.Item onClick={() => alert('Urn 3 selected')}>Urn 3</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </>
               ) : (
                 <></>
