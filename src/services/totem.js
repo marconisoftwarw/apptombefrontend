@@ -36,6 +36,7 @@ export async function getList() {
           nome: data[index].nome,
           id: data[index].id,
           idTotemHardware: data[index].idTotemHardware,
+          idUtenteVisibile: data[index].idUtenteVisibile,
           idCimitero: data[index].idCimitero,
           istemplatevalid: await checkremoteresource(
             url + '/cimitero' + data[index].idCimitero + '/' + data[index].id,
@@ -57,4 +58,17 @@ export async function deleteTotem(id) {
       ret = false
     })
   return ret
+}
+
+export async function updateTotem(id, idUtenteVisibile) {
+  let result = false
+  await axios
+    .put(url + '/totem/' + id + '/' + idUtenteVisibile)
+    .then(() => {
+      result = true
+    })
+    .catch((error) => {
+      console.error('Errore nell’aggiornamento del totem:', error)
+    })
+  return result
 }
