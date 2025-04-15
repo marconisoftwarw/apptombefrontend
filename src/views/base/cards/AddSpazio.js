@@ -19,7 +19,7 @@ import { generateTemplate } from '../../../services/template'
 import Dropdown from 'react-bootstrap/Dropdown'
 import './AddSpazio.css'
 
-function DropdownTemplateSelect(props) {
+function DropdownTemplateSelect({ setValue }) {
   return (
     <Dropdown>
       <Dropdown.Toggle
@@ -34,16 +34,24 @@ function DropdownTemplateSelect(props) {
         Seleziona Template
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        <Dropdown.Item onClick={() => props.setValue(1)}>Azzurro</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(2)}>Botanico</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(3)}>Bronzo</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(4)}>Carta</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(5)}>Cerchio</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(6)}>Fregio</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(7)}>Giallo</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(8)}>Marmo</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(9)}>Origami</Dropdown.Item>
-        <Dropdown.Item onClick={() => props.setValue(10)}>Rosa</Dropdown.Item>
+        {[...Array(10)].map((_, i) => (
+          <Dropdown.Item key={i} onClick={() => setValue(i + 1)}>
+            {
+              [
+                'Azzurro',
+                'Botanico',
+                'Bronzo',
+                'Carta',
+                'Cerchio',
+                'Fregio',
+                'Giallo',
+                'Marmo',
+                'Origami',
+                'Rosa',
+              ][i]
+            }
+          </Dropdown.Item>
+        ))}
       </Dropdown.Menu>
     </Dropdown>
   )
@@ -58,92 +66,75 @@ const AddSpazio = () => {
   const [error, setError] = useState(false)
   const [valueTemplate, setValueTemplate] = useState(1)
   const [uploadedImage, setUploadedImage] = useState(null)
+  const [nome, setNome] = useState('')
+  const [messaggio, setMessaggio] = useState('')
   const notify = (message) => toast(message)
-  let nome = '',
-    testo = ''
 
   useEffect(() => {
-    async function fetchData() {
-      nome = await localStorage.getItem('NomeDefuntoLoad')
-    }
-    fetchData()
+    const nomeLocal = localStorage.getItem('NomeDefuntoLoad')
+    if (nomeLocal) setNome(nomeLocal)
   }, [])
 
   const inserisci = async () => {
-    const idDefunto = await localStorage.getItem('idDefunto')
-    const idCimitero = await localStorage.getItem('idCimitero')
-    const idTotem = await localStorage.getItem('idTotem')
+    const idDefunto = localStorage.getItem('idDefunto')
+    const idCimitero = localStorage.getItem('idCimitero')
+    const idTotem = localStorage.getItem('idTotem')
 
-    if (nome !== '') {
+    if (nome) {
       await generateTemplate(
         nome,
         nome,
         'TEMPLATE' + valueTemplate,
-        uploadedImage || '', // Usare l'immagine caricata in formato Base64
-        '', // image2 placeholder
-        '', // image3 placeholder
+        uploadedImage || '',
+        '',
+        '',
         idDefunto,
         idCimitero,
         'TEMPLATE' + valueTemplate,
         idTotem,
       )
-
       navigate('/base/tables/totem')
-      window.location.reload()
     } else {
       notify('Errore')
       setError(true)
     }
   }
 
-  const changetesto = (val) => {
-    testo = val.target.value
-    nome = val.target.value
-  }
-
   const handleImageUpload = (event) => {
     const file = event.target.files[0]
-    if (file) {
-      // Controlla che il file sia un PNG
-      if (file.type !== 'image/png') {
-        notify('Puoi caricare solo file PNG.')
-        return
-      }
-
+    if (file && file.type === 'image/png') {
       const reader = new FileReader()
-      reader.onloadend = () => {
-        setUploadedImage(reader.result)
-      }
+      reader.onloadend = () => setUploadedImage(reader.result)
       reader.readAsDataURL(file)
+    } else {
+      notify('Puoi caricare solo file PNG.')
     }
   }
 
-  const getWidgeInput = (placeholder, autoComplete, onChangeFunction, value) => {
-    return (
-      <div
-        style={{
-          top: '662px',
-          left: '200px',
-          width: '350px',
-          height: '50px',
-          background: '#FFFFFF',
-          borderRadius: '25px',
-          marginLeft: '260%',
-          opacity: '1',
-        }}
-      >
-        <CInputGroup className="mb-3">
-          <CFormInput
-            defaultValue={value}
-            placeholder={placeholder}
-            autoComplete={autoComplete}
-            onChange={onChangeFunction}
-            style={{ borderRadius: '25px', height: '100%' }}
-          />
-        </CInputGroup>
-      </div>
-    )
-  }
+  const getWidgeInput = (placeholder, autoComplete, onChangeFunction, value) => (
+    <div
+      style={{
+        width: '350px',
+        height: '50px',
+        background: '#FFFFFF',
+        borderRadius: '25px',
+        margin: '10px 0',
+        opacity: '1',
+      }}
+    >
+      <CInputGroup className="mb-3">
+        <CFormInput
+          value={value}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          onChange={onChangeFunction}
+          style={{ borderRadius: '25px', height: '100%' }}
+        />
+      </CInputGroup>
+    </div>
+  )
+
+  const templateImages = [immg1, immg2, immg3, immg4, immg5, immg6, immg7, immg8, immg9, immg10]
 
   return (
     <div style={{ marginTop: '30px', marginLeft: '10%' }}>
@@ -151,38 +142,26 @@ const AddSpazio = () => {
         <CCol xs={12} className="d-flex align-items-center">
           <CCard
             className="custom-card mb-6 flex-fill"
-            style={{ backgroundColor: 'white', marginRight: '10px', height: '100%' }}
+            style={{ backgroundColor: 'white', width: '100%' }}
           >
-            <div style={{ marginLeft: '50px', marginLeft: '100px' }}>
+            <div style={{ marginLeft: '100px' }}>
               <DropdownTemplateSelect setValue={setValueTemplate} />
             </div>
-            <br></br>
+            <br />
             <CRow
               className="g-0"
-              style={{
-                width: '100%',
-                justifyContent: 'space-between',
-                marginTop: '20px',
-                marginRight: '90px',
-              }}
+              style={{ width: '100%', justifyContent: 'space-between', marginTop: '20px' }}
             >
               <CCol xs={6} className="d-flex justify-content-center align-items-center">
                 <div>
-                  {valueTemplate === 1 && <img src={immg1} width={300} alt="Template 1" />}
-                  {valueTemplate === 2 && <img src={immg2} width={300} alt="Template 2" />}
-                  {valueTemplate === 3 && <img src={immg3} width={300} alt="Template 3" />}
-                  {valueTemplate === 4 && <img src={immg4} width={300} alt="Template 4" />}
-                  {valueTemplate === 5 && <img src={immg5} width={300} alt="Template 5" />}
-                  {valueTemplate === 6 && <img src={immg6} width={300} alt="Template 6" />}
-                  {valueTemplate === 7 && <img src={immg7} width={300} alt="Template 7" />}
-                  {valueTemplate === 8 && <img src={immg8} width={300} alt="Template 8" />}
-                  {valueTemplate === 9 && <img src={immg9} width={300} alt="Template 9" />}
-                  {valueTemplate === 10 && <img src={immg10} width={300} alt="Template 10" />}
-
-                  <p>Nome: {localStorage.getItem('NomeDefuntoLoad')?.replace('<br></br>', '')}</p>
+                  <img
+                    src={templateImages[valueTemplate - 1]}
+                    width={300}
+                    alt={`Template ${valueTemplate}`}
+                  />
+                  <p>Nome: {nome}</p>
                 </div>
               </CCol>
-
               <CCol xs={6} className="d-flex justify-content-center align-items-center">
                 <label htmlFor="file-upload">
                   {uploadedImage ? (
@@ -191,9 +170,9 @@ const AddSpazio = () => {
                       alt="Caricata"
                       style={{
                         cursor: 'pointer',
-                        maxWidth: '100%', // Adatta l'immagine alla larghezza disponibile
-                        maxHeight: '200px', // Imposta un'altezza massima per non occupare troppo spazio
-                        objectFit: 'contain', // Mantieni le proporzioni
+                        maxWidth: '100%',
+                        maxHeight: '200px',
+                        objectFit: 'contain',
                       }}
                     />
                   ) : (
@@ -215,19 +194,22 @@ const AddSpazio = () => {
                 </label>
               </CCol>
             </CRow>
-
-            <div style={{ marginLeft: '50px', width: '200px' }}>
-              {getWidgeInput('Testo', 'Testo', changetesto)}
-              {getWidgeInput('Messaggio', 'messaggio', changetesto)}
+            <div style={{ marginLeft: '50px', width: '400px' }}>
+              {getWidgeInput('Nome', 'nome', (e) => setNome(e.target.value), nome)}
+              {getWidgeInput(
+                'Messaggio',
+                'messaggio',
+                (e) => setMessaggio(e.target.value),
+                messaggio,
+              )}
               <CCardBody>
                 <CButton
-                  color={'success'}
-                  onClick={() => inserisci()}
+                  color="success"
+                  onClick={inserisci}
                   style={{
-                    marginLeft: '35px',
+                    marginLeft: '800px',
                     backgroundColor: '#2B87BA',
                     color: 'white',
-                    marginLeft: '800px',
                   }}
                 >
                   Conferma
