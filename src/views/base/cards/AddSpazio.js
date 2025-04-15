@@ -8,6 +8,10 @@ import immg3 from '../../../assets/layout/03.png'
 import immg4 from '../../../assets/layout/04.png'
 import immg5 from '../../../assets/layout/05.png'
 import immg6 from '../../../assets/layout/06.png'
+import immg7 from '../../../assets/layout/07.png'
+import immg8 from '../../../assets/layout/08.png'
+import immg9 from '../../../assets/layout/09.png'
+import immg10 from '../../../assets/layout/10.png'
 import uploadimg from '../../../assets/upload.png'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -170,6 +174,11 @@ const AddSpazio = () => {
                   {valueTemplate === 4 && <img src={immg4} width={300} alt="Template 4" />}
                   {valueTemplate === 5 && <img src={immg5} width={300} alt="Template 5" />}
                   {valueTemplate === 6 && <img src={immg6} width={300} alt="Template 6" />}
+                  {valueTemplate === 7 && <img src={immg7} width={300} alt="Template 7" />}
+                  {valueTemplate === 8 && <img src={immg8} width={300} alt="Template 8" />}
+                  {valueTemplate === 9 && <img src={immg9} width={300} alt="Template 9" />}
+                  {valueTemplate === 10 && <img src={immg10} width={300} alt="Template 10" />}
+
                   <p>Nome: {localStorage.getItem('NomeDefuntoLoad')?.replace('<br></br>', '')}</p>
                 </div>
               </CCol>
