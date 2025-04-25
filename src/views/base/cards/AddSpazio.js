@@ -67,6 +67,7 @@ const AddSpazio = () => {
   const [valueTemplate, setValueTemplate] = useState(1)
   const [uploadedImage, setUploadedImage] = useState(null)
   const [nome, setNome] = useState('')
+  const [nome2, setNome2] = useState('')
   const [messaggio, setMessaggio] = useState('')
   const notify = (message) => toast(message)
 
@@ -83,7 +84,8 @@ const AddSpazio = () => {
     if (nome) {
       await generateTemplate(
         nome,
-        nome,
+        nome2,
+        messaggio,
         'TEMPLATE' + valueTemplate,
         uploadedImage || '',
         '',
@@ -159,7 +161,8 @@ const AddSpazio = () => {
                     width={300}
                     alt={`Template ${valueTemplate}`}
                   />
-                  <p>Nome: {nome}</p>
+                  <br></br>
+                  <b>Nome: {nome.replace('<br>', '').replace('</br>', '')}</b>
                 </div>
               </CCol>
               <CCol xs={6} className="d-flex justify-content-center align-items-center">
@@ -195,7 +198,7 @@ const AddSpazio = () => {
               </CCol>
             </CRow>
             <div style={{ marginLeft: '50px', width: '400px' }}>
-              {getWidgeInput('Nome', 'nome', (e) => setNome(e.target.value), nome)}
+              {getWidgeInput('Nome', 'nome', (e) => setNome2(e.target.value), nome2)}
               {getWidgeInput(
                 'Messaggio',
                 'messaggio',

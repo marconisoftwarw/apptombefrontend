@@ -4,6 +4,7 @@ import { url } from './settings'
 export async function generateTemplate(
   nome,
   testo,
+  messaggio,
   template,
   image1,
   image2,
@@ -18,6 +19,7 @@ export async function generateTemplate(
     .post(url + '/template/generate', {
       nome: nome,
       testo: testo,
+      messaggio: messaggio,
       template: template,
       image1: image1,
       image2: image2,
